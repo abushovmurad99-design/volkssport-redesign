@@ -62,8 +62,10 @@
   };
 
   /* ================= CATEGORY ================= */
-  // '' = default order (in stock first), shown as the select label. "Best sellers" removed: no sales data in the prototype.
-  const SORTS = [['', 'Sırala'], ['new', 'Yenilər'], ['az', 'Ad A-Z'], ['za', 'Ad Z-A'], ['asc', 'Ucuzdan bahaya'], ['desc', 'Bahadan ucuza']];
+  // Default sort on every listing = 'new' (newest first). The prototype has no date-added field, so 'new' orders by id_product
+  // descending (higher id = created later in PrestaShop). Production: sort by date_add. "Best sellers" removed: no sales data.
+  const DEFAULT_SORT = 'new';
+  const SORTS = [['new', 'Yenilər'], ['az', 'Ad A-Z'], ['za', 'Ad Z-A'], ['asc', 'Ucuzdan bahaya'], ['desc', 'Bahadan ucuza']];
   const PER_PAGE = 24;
   VS.pages.category = async () => {
     const [all, tree] = await Promise.all([VS.data.products(), VS.data.categories()]);
@@ -96,7 +98,7 @@
     $('[data-chips]', root).innerHTML = chips.length ? (chipParent && node !== chipParent ? `<a class="vs-chip" href="category.html?c=${VS.cid(chipParent.id)}">Hamısı</a>` : '') + chips.map(({ n, count }) => `<a class="vs-chip${n.id === st.c ? ' is-active' : ''}" href="category.html?c=${VS.cid(n.id)}" ${n.id === st.c ? 'aria-current="true"' : ''}>${esc(n.name)} <span class="vs-chip__count">${count}</span></a>`).join('') : '';
 
     // Filters (PrestaShop: ps_facetedsearch). Options only show values that exist in the current set.
-    const f = { brands: (st.f_brand || '').split(',').filter(Boolean), min: st.pmin || '', max: st.pmax || '', stock: st.stock === '1', sort: st.sort || (st.new ? 'new' : ''), page: +st.p || 1 };
+    const f = { brands: (st.f_brand || '').split(',').filter(Boolean), min: st.pmin || '', max: st.pmax || '', stock: st.stock === '1', sort: SORTS.some(([k]) => k === st.sort) ? st.sort : DEFAULT_SORT, page: +st.p || 1 };
     const brandCounts = {}; base.forEach(p => { if (p.manufacturer_name) brandCounts[p.manufacturer_name] = (brandCounts[p.manufacturer_name] || 0) + 1; });
     const brands = Object.entries(brandCounts).sort((a, b) => b[1] - a[1]);
     const hasOut = base.some(p => !(p.quantity > 0));
@@ -128,7 +130,7 @@
       $$('[data-sheet-apply]').forEach(b => { b.textContent = list.length + ' məhsulu göstər'; });
 
       const u = new URLSearchParams(); ['c', 'q', 'brand', 'wishlist', 'new'].forEach(k => st[k] && u.set(k, st[k]));
-      if (f.brands.length) u.set('f_brand', f.brands.join(',')); if (f.min) u.set('pmin', f.min); if (f.max) u.set('pmax', f.max); if (f.stock) u.set('stock', '1'); if (f.sort !== (st.new ? 'new' : '')) u.set('sort', f.sort); if (f.page > 1) u.set('p', f.page);
+      if (f.brands.length) u.set('f_brand', f.brands.join(',')); if (f.min) u.set('pmin', f.min); if (f.max) u.set('pmax', f.max); if (f.stock) u.set('stock', '1'); if (f.sort !== DEFAULT_SORT) u.set('sort', f.sort); if (f.page > 1) u.set('p', f.page);
       history.replaceState(null, '', '?' + u.toString());
     };
     const pager = (cur, total) => {
