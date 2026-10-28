@@ -206,6 +206,7 @@ Bütün brendlər|Все бренды|All brands
 Daha az göstər|Показать меньше|Show less
 YENİ|НОВИНКА|NEW
 Stokda var|В наличии|In stock
+Şəkil yüklənmədi|Не удалось загрузить изображение|Image failed to load
 Stokda az qalıb|Осталось мало|Low stock
 Stokda yoxdur|Нет в наличии|Out of stock
 Mövcudluq|Наличие|Availability

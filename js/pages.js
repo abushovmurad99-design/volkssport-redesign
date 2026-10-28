@@ -27,22 +27,22 @@
     const uniqBy = (list, key, n) => { const seen = new Set(); return list.filter(p => { const k = key(p); if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, n); };
     // Yeni gələnlər — PROTOTYPE selection: in stock, price > 0, sorted by id_product descending (rail 12, listing 48).
     // id_product order is a stand-in; it does not prove when a product was added. Production: PrestaShop new-products data (see PRESTASHOP-INTEGRATION.md §5.5).
-    rail('[data-rail="new"]', all.filter(p => p.quantity > 0 && p.price > 0).sort((a, b) => b.id_product - a.id_product).slice(0, 12));
+    rail('[data-rail="new"]', all.filter(p => VS.inStock(p) && p.price > 0).sort((a, b) => b.id_product - a.id_product).slice(0, 12));
     // Məşqə başlamaq üçün — PROTOTYPE curated rail: 30–300 AZN, in stock, with image; one product per category,
     // categories in this order (accessories and small equipment first). Production: Admin-managed selection (PRESTASHOP-INTEGRATION.md §5.11).
     const START_CATS = ['w-qantel', 'a-3', 'a-top', 'a-mat', 'oturacaq', 'a-10', 'w-kb', 'f-pres', 'a-2', 'turnik', 'a-5', 'f-esp', 'w-qrif', 'step'];
-    const inBand = (p, lo, hi) => p.quantity > 0 && p.price >= lo && p.price <= hi && p.cover;
+    const inBand = (p, lo, hi) => VS.inStock(p) && p.price >= lo && p.price <= hi && p.cover;
     const start = START_CATS.map(c => all.filter(p => p.id_category_default === c && inBand(p, 30, 300)).sort((a, b) => a.price - b.price)[0]).filter(Boolean).slice(0, 12);
     // Client request: two cards swapped in place (outside the 30–300 band by design): 50729 → H-23-4 (8.50 AZN mat), 800-040 → LP8076-1.
     const START_SWAP = { '50729': 'H-23-4', '800-040': 'LP8076-1' };
-    const startList = start.map(p => START_SWAP[p.reference] ? (all.find(q => q.reference === START_SWAP[p.reference] && q.quantity > 0 && q.price > 0 && q.cover) || p) : p);
+    const startList = start.map(p => START_SWAP[p.reference] ? (all.find(q => q.reference === START_SWAP[p.reference] && VS.inStock(q) && q.price > 0 && q.cover) || p) : p);
     rail('[data-rail="start"]', startList);
-    const sale = all.filter(p => p.regular_price > p.price && p.quantity > 0).sort((a, b) => (b.regular_price - b.price) - (a.regular_price - a.price));
+    const sale = all.filter(p => p.regular_price > p.price && VS.inStock(p)).sort((a, b) => (b.regular_price - b.price) - (a.regular_price - a.price));
     rail('[data-rail="sale"]', uniqBy(sale, p => p.name.split(' ')[0], 8));
     const tree = await VS.data.categories();
     const kardio = VS.data.leafIds(VS.data.find(tree, 'fitness-kardio-trenajorlar'));
     // Client request: only affordable rowing machines (< 1 000 AZN) on the home cardio rail; the rest stay in their category.
-    rail('[data-rail="kardio"]', uniqBy(all.filter(p => kardio.has(p.id_category_default) && p.quantity > 0 && p.price > 0 && !(p.id_category_default === 'avar' && p.price >= 1000)).sort((a, b) => (b.id_category_default === 'qacis') - (a.id_category_default === 'qacis')), p => p.id_category_default + p.manufacturer_name, 8));
+    rail('[data-rail="kardio"]', uniqBy(all.filter(p => kardio.has(p.id_category_default) && VS.inStock(p) && p.price > 0 && !(p.id_category_default === 'avar' && p.price >= 1000)).sort((a, b) => (b.id_category_default === 'qacis') - (a.id_category_default === 'qacis')), p => p.id_category_default + p.manufacturer_name, 8));
     const strength = VS.data.leafIds(VS.data.find(tree, 'fitness-guc-trenajoru'));
     VS.renderBrands(all);
     // Professional fitness — PROTOTYPE tiered order: up to 3 per price band, one per subcategory within each band, bands 300–700 → 700–1 500 → over 1 500.
@@ -52,7 +52,7 @@
     const PRO_EXCLUDE = new Set(['1713', 'VG-98B', 'VGPH-33', 'VG-2HG', 'US2012', 'VG-68WB']);
     // Client request: in-stock strength machines pinned into the slots of the two hidden products (positions 1 and 4).
     const PRO_PIN = [['VG-87HG', 0], ['S6-026A', 3]];
-    const strengthOk = all.filter(p => strength.has(p.id_category_default) && p.quantity > 0 && p.price > 0 && p.cover && !PRO_EXCLUDE.has(p.reference));
+    const strengthOk = all.filter(p => strength.has(p.id_category_default) && VS.inStock(p) && p.price > 0 && p.cover && !PRO_EXCLUDE.has(p.reference));
     const proBands = [[300, 700], [700, 1500], [1500, Infinity]];
     const pro = proBands.flatMap(([lo, hi]) => { const used = new Set(); return strengthOk.filter(p => p.price >= lo && p.price < hi).sort((a, b) => a.price - b.price).filter(p => { if (used.has(p.id_category_default)) return false; used.add(p.id_category_default); return true; }).slice(0, 3); });
     const pinned = PRO_PIN.map(([ref, i]) => [strengthOk.find(p => p.reference === ref), i]).filter(([p]) => p);
@@ -77,7 +77,7 @@
     let base, title, crumbs = [['Ana səhifə', 'index.html']];
     if (st.wishlist) { const ids = VS.wish.get(); base = all.filter(p => ids.includes(p.id_product)); title = 'Seçilmişlər'; }
     else if (st.q) { const q = st.q.toLowerCase(); base = all.filter(p => (p.name + ' ' + p.reference + ' ' + p.manufacturer_name).toLowerCase().includes(q)); title = '“' + st.q + '” üzrə nəticələr'; }
-    else if (st.new) { base = all.filter(p => p.quantity > 0 && p.price > 0).sort((a, b) => b.id_product - a.id_product).slice(0, 48); title = 'Yeni gələnlər'; }
+    else if (st.new) { base = all.filter(p => VS.inStock(p) && p.price > 0).sort((a, b) => b.id_product - a.id_product).slice(0, 48); title = 'Yeni gələnlər'; }
     else if (st.c === 'sale') { base = all.filter(p => p.regular_price > p.price); title = 'Endirimli məhsullar'; }
     else if (st.brand) { base = all.filter(p => p.manufacturer_name.toLowerCase() === st.brand.toLowerCase()); title = st.brand; crumbs.push(['Brendlər', null]); }
     else if (node) { const ids = VS.data.leafIds(node); base = all.filter(p => ids.has(p.id_category_default)); title = node.name; node.parents.forEach(p => crumbs.push([p.name, 'category.html?c=' + VS.cid(p.id)])); }
@@ -101,7 +101,7 @@
     const f = { brands: (st.f_brand || '').split(',').filter(Boolean), min: st.pmin || '', max: st.pmax || '', stock: st.stock === '1', sort: SORTS.some(([k]) => k === st.sort) ? st.sort : DEFAULT_SORT, page: +st.p || 1 };
     const brandCounts = {}; base.forEach(p => { if (p.manufacturer_name) brandCounts[p.manufacturer_name] = (brandCounts[p.manufacturer_name] || 0) + 1; });
     const brands = Object.entries(brandCounts).sort((a, b) => b[1] - a[1]);
-    const hasOut = base.some(p => !(p.quantity > 0));
+    const hasOut = base.some(p => VS.stock(p) === 'out');
     const prices = base.map(p => p.price).filter(n => n > 0);
     const pMin = prices.length ? Math.floor(Math.min(...prices)) : 0, pMax = prices.length ? Math.ceil(Math.max(...prices)) : 0;
 
@@ -114,8 +114,8 @@
     sortSel.innerHTML = SORTS.map(([k, t]) => `<option value="${k}" ${k === f.sort ? 'selected' : ''}>${t}</option>`).join('');
 
     const apply = () => {
-      let list = base.filter(p => (!f.brands.length || f.brands.includes(p.manufacturer_name)) && (!f.min || p.price >= +f.min) && (!f.max || p.price <= +f.max) && (!f.stock || p.quantity > 0));
-      const cmp = { az: (a, b) => a.name.localeCompare(b.name, 'az'), za: (a, b) => b.name.localeCompare(a.name, 'az'), asc: (a, b) => (a.price || 1e9) - (b.price || 1e9), desc: (a, b) => b.price - a.price, new: (a, b) => b.id_product - a.id_product, dflt: (a, b) => (b.quantity > 0) - (a.quantity > 0) };
+      let list = base.filter(p => (!f.brands.length || f.brands.includes(p.manufacturer_name)) && (!f.min || p.price >= +f.min) && (!f.max || p.price <= +f.max) && (!f.stock || VS.inStock(p)));
+      const cmp = { az: (a, b) => a.name.localeCompare(b.name, 'az'), za: (a, b) => b.name.localeCompare(a.name, 'az'), asc: (a, b) => (a.price || 1e9) - (b.price || 1e9), desc: (a, b) => b.price - a.price, new: (a, b) => b.id_product - a.id_product, dflt: (a, b) => VS.inStock(b) - VS.inStock(a) };
       list = [...list].sort(cmp[f.sort] || cmp.dflt);
       const pages = Math.max(1, Math.ceil(list.length / PER_PAGE)); f.page = Math.min(f.page, pages);
       const slice = list.slice((f.page - 1) * PER_PAGE, f.page * PER_PAGE);
@@ -179,7 +179,7 @@
     const cat = flat.find(n => n.id === p.id_category_default);
     let crumbs = [['Ana səhifə', 'index.html'], ...(cat ? [...cat.parents, cat].map(n => [n.name, 'category.html?c=' + VS.cid(n.id)]) : []), [p.reference || p.name, null]];
     const sale = p.regular_price > p.price;
-    const stock = p.quantity > 0 ? ['in', 'Stokda var'] : ['out', 'Stokda yoxdur'];
+    const st0 = VS.stock(p); const stock = st0 === 'in' ? ['in', 'Stokda var'] : st0 === 'out' ? ['out', 'Stokda yoxdur'] : ['unknown', ''];
     const logo = VS.data.brandLogo(p.manufacturer_name);
     // Cover stays first (default main image); optional `images` holds extra gallery photos only.
     const images = [...new Set([p.cover, ...(p.images || [])].filter(Boolean))];
@@ -202,12 +202,12 @@
     // Other products with a spec table: hide it when any line repeats a table value (prose-only short text stays visible).
     const hideShort = p.features_from_text ? shortLines.every(inTable) : !!(p.features && p.features.length) && shortLines.some(inTable);
     if (shortLines.length && !hideShort && p.description_short.trim() !== String(p.description_plain || '').trim()) { shortEl.innerHTML = p.description_short.split('\n').map(l => l.trim()).filter(Boolean).map(l => `<p>${esc(l)}</p>`).join(''); shortEl.hidden = false; }
-    const stockText = stock[1] + (stock[0] === 'low' ? ' (' + p.quantity + ')' : '');
+    const stockText = stock[1];
     const priceText = p.price > 0 ? VS.data.money(p.price) : 'Zəng edin';
     $('[data-code]', root).textContent = p.reference ? 'Kod: ' + p.reference : '';
     $('[data-meta]', root).innerHTML = `<span class="vs-rating" aria-label="Reytinq yoxdur">${'<i class="vs-rating__star"></i>'.repeat(5)}</span><span>Hələ rəy yoxdur</span>`;
-    $('[data-stock]', root).innerHTML = `<span class="vs-stock vs-stock--${stock[0]}">${stockText}</span>`;
-    $('[data-facts]', root).innerHTML = [['Brend', p.manufacturer_name || '—'], ['Kod', p.reference || '—'], ['Qiymət', priceText], ['Stok', stockText]].map(([k, v]) => `<div class="vs-facts__cell"><span class="vs-facts__k">${k}</span><span class="vs-facts__v">${esc(v)}</span></div>`).join('');
+    $('[data-stock]', root).innerHTML = stockText ? `<span class="vs-stock vs-stock--${stock[0]}">${stockText}</span>` : '';
+    $('[data-facts]', root).innerHTML = [['Brend', p.manufacturer_name || '—'], ['Kod', p.reference || '—'], ['Qiymət', priceText], ['Stok', stockText || '—']].map(([k, v]) => `<div class="vs-facts__cell"><span class="vs-facts__k">${k}</span><span class="vs-facts__v">${esc(v)}</span></div>`).join('');
     $('[data-price]', root).innerHTML = p.price > 0
       ? `<div class="vs-price vs-price--lg${sale ? ' vs-price--sale' : ''}"><span class="vs-price__current">${VS.data.money(p.price)}</span>${sale ? `<span class="vs-price__old">${VS.data.money(p.regular_price)}</span><span class="vs-price__save">−${Math.round((1 - p.price / p.regular_price) * 100)}% · −${VS.data.money(p.regular_price - p.price)}</span>` : ''}</div>`
       : `<div class="vs-price vs-price--call vs-price--lg"><span class="vs-price__current" style="font-size:22px">Qiymət üçün zəng edin</span></div>`;
@@ -215,8 +215,8 @@
     // Tabs — only those with real data are rendered
     const feats = p.features || [];
     const rows = [...feats.map(x => [x.name, x.value]), ['Brend', p.manufacturer_name || '—'], ['Kod (reference)', p.reference || '—'], ['Mövcudluq', stockText]];
-    const peers = [p, ...all.filter(x => x.id_category_default === p.id_category_default && x.id_product !== p.id_product && x.quantity > 0).slice(0, 2)];
-    const cmpRows = [['Kod', x => x.reference || '—'], ['Brend', x => x.manufacturer_name || '—'], ['Qiymət', x => x.price > 0 ? VS.data.money(x.price) : '—'], ['Stok', x => x.quantity > 0 ? 'Var' : 'Yoxdur']];
+    const peers = [p, ...all.filter(x => x.id_category_default === p.id_category_default && x.id_product !== p.id_product && VS.inStock(x)).slice(0, 2)];
+    const cmpRows = [['Kod', x => x.reference || '—'], ['Brend', x => x.manufacturer_name || '—'], ['Qiymət', x => x.price > 0 ? VS.data.money(x.price) : '—'], ['Stok', x => ({ in: 'Var', out: 'Yoxdur' })[VS.stock(x)] || '—']];
     const specHtml = `<div class="vs-specgrid">
       <div>
         <table class="vs-spec vs-spec--plain"><tbody>${rows.map(([k, v], i) => `<tr><th scope="row"${i < feats.length ? ' data-i18n-ctx="spec"' : ''}>${esc(k)}</th><td${i < feats.length ? ' data-no-i18n' : ''}>${esc(v)}</td></tr>`).join('')}</tbody></table></div>
@@ -239,7 +239,7 @@
     }
 
     // Related: same category, in stock first
-    const rel = all.filter(x => x.id_category_default === p.id_category_default && x.id_product !== p.id_product).sort((a, b) => (b.quantity > 0) - (a.quantity > 0)).slice(0, 8);
+    const rel = all.filter(x => x.id_category_default === p.id_category_default && x.id_product !== p.id_product).sort((a, b) => VS.inStock(b) - VS.inStock(a)).slice(0, 8);
     const relEl = $('[data-related]');
     if (rel.length) $('[data-rail]', relEl).innerHTML = rel.map(VS.card).join(''); else relEl.hidden = true;
 
@@ -250,7 +250,7 @@
     window.addEventListener('scroll', () => main.classList.remove('is-zoom'), { passive: true });
     main.addEventListener('mouseleave', () => main.classList.remove('is-zoom'));
     let cur = 0;
-    const show = i => { if (noImage) return; cur = (i + images.length) % images.length; mainImg.src = images[cur]; $$('[data-thumb]', root).forEach(t => t.setAttribute('aria-current', +t.dataset.thumb === cur)); viewImg.src = images[cur]; viewCount.textContent = (cur + 1) + ' / ' + images.length; syncViewThumbs(); };
+    const show = i => { if (noImage) return; cur = (i + images.length) % images.length; mainImg.src = images[cur]; $$('[data-thumb]', root).forEach(t => t.setAttribute('aria-current', +t.dataset.thumb === cur)); if (viewImg.getAttribute('src') !== images[cur]) viewer.classList.remove('is-error'); viewImg.src = images[cur]; viewCount.textContent = (cur + 1) + ' / ' + images.length; syncViewThumbs(); };
     const viewer = $('.vs-viewer'), viewImg = $('[data-view-img]', viewer), viewCount = $('[data-view-count]', viewer);
     viewImg.alt = p.name;
     // Fullscreen gallery: arrows, thumbnail strip, keyboard, swipe. Uses the same images array as the page gallery (cover + images[]).
@@ -263,20 +263,49 @@
       btns.forEach(b => b.setAttribute('aria-current', +b.dataset.vthumb === cur));
       const b = btns[cur]; if (b && viewer.classList.contains('is-open')) { const br = b.getBoundingClientRect(), sr = viewThumbs.getBoundingClientRect(), l = viewThumbs.scrollLeft + (br.left - sr.left) - (sr.width - br.width) / 2; viewThumbs.scrollLeft = Math.max(0, l); }
     }
-    const step = n => { if (multi) { viewer.classList.remove('is-zoom'); show(cur + n); } };
+    let zoomOut = () => {};
+    const step = n => { if (multi) { zoomOut(); show(cur + n); } };
     $('[data-view-prev]', viewer).addEventListener('click', e => { e.stopPropagation(); step(-1); });
     $('[data-view-next]', viewer).addEventListener('click', e => { e.stopPropagation(); step(1); });
-    viewThumbs.addEventListener('click', e => { const t = e.target.closest('[data-vthumb]'); if (t) { viewer.classList.remove('is-zoom'); show(+t.dataset.vthumb); } });
+    viewThumbs.addEventListener('click', e => { const t = e.target.closest('[data-vthumb]'); if (t) { zoomOut(); show(+t.dataset.vthumb); } });
     let sx = null, sy = 0, swiped = false;
     const stageEl = $('.vs-viewer__stage', viewer);
     stageEl.addEventListener('touchstart', e => { swiped = false; if (e.touches.length !== 1 || viewer.classList.contains('is-zoom')) { sx = null; return; } sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
     stageEl.addEventListener('touchend', e => { if (sx === null) return; const t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy; sx = null; if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) { swiped = true; step(dx < 0 ? 1 : -1); } }, { passive: true });
-    const setView = v => { viewer.classList.toggle('is-open', v); viewer.classList.remove('is-zoom'); document.body.classList.toggle('vs-no-scroll', v); if (v) requestAnimationFrame(syncViewThumbs); };
+    const setView = v => { viewer.classList.toggle('is-open', v); zoomOut(); document.body.classList.toggle('vs-no-scroll', v); if (v) requestAnimationFrame(syncViewThumbs); };
     $('[data-thumbs]', root).addEventListener('click', e => { const t = e.target.closest('[data-thumb]'); if (t) show(+t.dataset.thumb); });
     main.addEventListener('click', () => { if (noImage) return; show(cur); setView(true); });
     $('[data-fullscreen]', root).addEventListener('click', e => { e.stopPropagation(); show(cur); setView(true); });
     $('[data-view-close]', viewer).addEventListener('click', () => setView(false));
-    $('.vs-viewer__stage', viewer).addEventListener('click', () => { if (swiped) { swiped = false; return; } viewer.classList.toggle('is-zoom'); });
+    // Click-to-zoom: zoom on the clicked point, capped by the photo's real pixel size (1.5x-2.5x of the fitted size),
+    // then scroll the stage so that point is centred. Mouse move pans (desktop); finger drag pans natively (overflow:auto).
+    zoomOut = () => { viewer.classList.remove('is-zoom'); viewImg.style.width = ''; viewImg.style.height = ''; stageEl.scrollLeft = 0; stageEl.scrollTop = 0; };
+    const zoomAt = (cx, cy) => {
+      const r = viewImg.getBoundingClientRect(); if (!r.width || !viewImg.naturalWidth) return;
+      const fx = Math.min(1, Math.max(0, (cx - r.left) / r.width)), fy = Math.min(1, Math.max(0, (cy - r.top) / r.height));
+      const scale = Math.max(1.5, Math.min(2.5, viewImg.naturalWidth / r.width));
+      const w = Math.round(r.width * scale), h = Math.round(r.height * scale);
+      viewer.classList.add('is-zoom'); viewImg.style.width = w + 'px'; viewImg.style.height = h + 'px';
+      stageEl.scrollLeft = fx * w - stageEl.clientWidth / 2; stageEl.scrollTop = fy * h - stageEl.clientHeight / 2;
+    };
+    let dragMoved = false, tx0 = 0, ty0 = 0;
+    stageEl.addEventListener('touchstart', e => { dragMoved = false; if (e.touches.length === 1) { tx0 = e.touches[0].clientX; ty0 = e.touches[0].clientY; } }, { passive: true });
+    stageEl.addEventListener('touchmove', e => { if (e.touches.length === 1 && Math.hypot(e.touches[0].clientX - tx0, e.touches[0].clientY - ty0) > 8) dragMoved = true; }, { passive: true });
+    stageEl.addEventListener('click', e => {
+      if (swiped) { swiped = false; return; }
+      if (viewer.classList.contains('is-error')) return;
+      if (viewer.classList.contains('is-zoom')) { if (!dragMoved) zoomOut(); dragMoved = false; return; }
+      if (e.target === viewImg) zoomAt(e.clientX, e.clientY);
+    });
+    stageEl.addEventListener('mousemove', e => {
+      if (!viewer.classList.contains('is-zoom') || !matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+      const s = stageEl.getBoundingClientRect(), fx = (e.clientX - s.left) / s.width, fy = (e.clientY - s.top) / s.height;
+      stageEl.scrollLeft = fx * (stageEl.scrollWidth - stageEl.clientWidth); stageEl.scrollTop = fy * (stageEl.scrollHeight - stageEl.clientHeight);
+    });
+    // Failed photo: message instead of a blank white stage
+    const viewErr = document.createElement('p'); viewErr.className = 'vs-viewer__error'; viewErr.setAttribute('role', 'status'); viewErr.textContent = 'Şəkil yüklənmədi'; stageEl.appendChild(viewErr);
+    viewImg.addEventListener('error', () => { zoomOut(); viewer.classList.add('is-error'); });
+    viewImg.addEventListener('load', () => viewer.classList.remove('is-error'));
     document.addEventListener('keydown', e => { if (!viewer.classList.contains('is-open')) return; if (e.key === 'Escape') setView(false); if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
     show(0);
   };

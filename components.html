@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Komponent kataloqu — VOLKS SPORT (dev)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=20261022">
+<link rel="stylesheet" href="css/base.css?v=20261022">
+<link rel="stylesheet" href="css/components.css?v=20261022">
+<link rel="stylesheet" href="css/layout.css?v=20261022">
+<link rel="stylesheet" href="css/pages.css?v=20261022">
+<!-- Catalogue-only layout helpers (cc-*). Not part of the theme. -->
+<style>
+.cc-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding-block: 32px 0; }
+.cc-toc { position: sticky; top: 160px; align-self: start; display: flex; flex-direction: column; gap: 4px; font-size: 13px; max-height: calc(100vh - 180px); overflow: auto; }
+.cc-toc a { color: var(--vs-text-2); padding: 3px 0; }
+.cc-toc a:hover { color: var(--vs-red); }
+.cc-sec { padding: 48px 0; border-top: 1px solid var(--vs-border); scroll-margin-top: 150px; display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.cc-sec > header { display: flex; flex-direction: column; gap: 6px; max-width: 72ch; }
+.cc-sec h2 { font-size: 26px; font-weight: 900; font-style: italic; font-stretch: 75%; text-transform: uppercase; }
+.cc-sec p { color: var(--vs-text-2); font-size: 14px; }
+.cc-meta { font-family: var(--vs-font-mono); font-size: 11.5px; color: var(--vs-text-3); }
+.cc-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.cc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 28px 20px; }
+.cc-cell { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.cc-label { font-family: var(--vs-font-mono); font-size: 11px; color: var(--vs-text-2); }
+.cc-stage { border: 1px dashed var(--vs-border); padding: 20px; min-width: 0; }
+.cc-stage--dark { background: var(--vs-ink); border-color: var(--vs-ink); }
+.cc-swatch { display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
+.cc-swatch i { height: 56px; border: 1px solid var(--vs-hairline); }
+.cc-note { font-size: 13px; padding: 12px 14px; background: var(--vs-surface-2); border-left: 0; color: var(--vs-text-2); }
+.cc-flag { font-family: var(--vs-font-mono); font-size: 10.5px; font-weight: 500; padding: 2px 6px; background: var(--vs-warning-bg); color: #7A5A00; align-self: flex-start; }
+@media (max-width: 1024px) { .cc-layout { grid-template-columns: minmax(0, 1fr); } .cc-toc { position: static; flex-direction: row; flex-wrap: wrap; gap: 6px 16px; max-height: none; } }
+</style>
+</head>
+<body data-page="components">
+<div data-include="partials/header.html"></div>
+<main class="vs-container">
+  <div class="vs-pagehead" lang="en">
+    <span class="cc-flag">DEV REFERENCE · noindex · not linked from customer navigation · do not deploy</span>
+    <h1 class="vs-h1" lang="az">Komponent kataloqu</h1>
+    <p class="vs-pagehead__lead">Every block below uses the live theme CSS (<code>css/*.css</code>) and the shared JS in <code>js/app.js</code>. Product and blog examples are read from <code>data/*.json</code> at load time. Nothing here is product-specific.</p>
+  </div>
+
+  <div class="cc-layout" lang="en">
+    <nav class="cc-toc" aria-label="Kataloq bölmələri">
+      <a href="#tokens">Tokens</a><a href="#type">Typography</a><a href="#header">Header &amp; mega menu</a><a href="#mobile">Mobile nav &amp; tab bar</a><a href="#lang">Language switch</a><a href="#buttons">Buttons &amp; links</a><a href="#badges">Badges &amp; price</a><a href="#breadcrumb">Breadcrumb</a><a href="#cards">Product cards</a><a href="#catcards">Category &amp; brand cards</a><a href="#forms">Form controls</a><a href="#search">Search</a><a href="#filters">Filters, sort, pagination</a><a href="#gallery">Product gallery</a><a href="#tabs">Product tabs &amp; specs</a><a href="#wish">Wishlist &amp; quick view</a><a href="#messages">Messages</a><a href="#accordion">Accordion / FAQ</a><a href="#blog">Blog</a><a href="#empty">Empty states</a><a href="#store">Store info</a><a href="#unused">Unused CSS</a><a href="#footer">Footer</a>
+    </nav>
+
+    <div>
+      <section class="cc-sec" id="tokens" style="border-top:0;padding-top:0">
+        <header><h2>Design tokens</h2><p>Single source in <code>css/tokens.css</code>. Values below are read live from the CSS custom properties.</p></header>
+        <div class="cc-grid" data-swatches style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr))"></div>
+        <div class="cc-row cc-meta">Radius 0 · border 1px / 1.5px · control heights 36 / 44 / 52 / 56 · spacing 4px base · breakpoints 1280 / 1024 / 768 / 600</div>
+      </section>
+
+      <section class="cc-sec" id="type">
+        <header><h2>Typography</h2><p>Archivo (variable width) for everything; JetBrains Mono for product codes. Helpers in <code>css/base.css</code>.</p></header>
+        <div class="cc-cell"><span class="cc-label">.vs-display</span><span class="vs-display" lang="en" style="font-size:clamp(36px,11vw,64px)">Professional</span></div>
+        <div class="cc-cell"><span class="cc-label">.vs-h1</span><span class="vs-h1" lang="az">Kardio trenajorlar</span></div>
+        <div class="cc-cell"><span class="cc-label">.vs-h2</span><span class="vs-h2" lang="az">Endirimli məhsullar</span></div>
+        <div class="cc-cell"><span class="cc-label">.vs-h3</span><span class="vs-h3" lang="az">Güc trenajoru</span></div>
+        <div class="cc-cell"><span class="cc-label">.vs-eyebrow</span><span class="vs-eyebrow" lang="az">Brend</span></div>
+        <div class="cc-cell"><span class="cc-label">body 15px</span><p style="color:var(--vs-text);font-size:15px;max-width:60ch">Ev məşqindən peşəkar idman zallarına qədər — minlərlə məhsul bir ünvanda.</p></div>
+        <div class="cc-cell"><span class="cc-label">.vs-mono / .vs-card__code</span><span class="vs-card__code" style="font-size:13px">VG-15</span></div>
+      </section>
+
+      <section class="cc-sec" id="header">
+        <header><h2>Header, desktop navigation &amp; mega menu</h2><p>Live at the top of this page (<code>partials/header.html</code>). Utility bar → logo, search trigger, account, wishlist → category bar. The category bar and mega menu are generated from <code>data/categories.json</code>; categories without products are hidden. Hover or Tab into a category to open its mega menu; <kbd>Esc</kbd> closes it.</p></header>
+        <div class="cc-note">PrestaShop: <code>_partials/header.tpl</code> + main-menu module. States: default · hover (red underline) · open (<code>.is-open</code>) · keyboard focus (<code>:focus-visible</code> yellow ring). Below 1024px the category bar is replaced by the burger menu.</div>
+        <div class="cc-meta">Classes: vs-util, vs-header, vs-header__main, vs-nav, vs-nav__item, vs-nav__link(--sale), vs-mega, vs-mega__inner, vs-mega__title, vs-mega__list, vs-mega__all</div>
+      </section>
+
+      <section class="cc-sec" id="mobile">
+        <header><h2>Mobile navigation &amp; bottom tab bar</h2><p>Full-screen drill-down menu built from the same category tree, with Back and “— hamısı” rows. The tab bar is fixed to the bottom of the viewport at ≤600px (Ana səhifə · Kateqoriyalar · Axtarış · Seçilmişlər · Hesab).</p></header>
+        <div class="cc-row"><button class="vs-btn vs-btn--outline" data-mnav-open>Open mobile menu</button><span class="cc-meta">Resize below 600px to see the tab bar.</span></div>
+        <div class="cc-meta">Classes: vs-mnav, vs-mnav__row(--sub), vs-mnav__back, vs-tabbar</div>
+      </section>
+
+      <section class="cc-sec" id="lang">
+        <header><h2>AZ / RU / EN language switch</h2><p>In the utility bar. Prototype only: <code>js/i18n.js</code> swaps interface strings in the DOM and stores the choice in <code>localStorage</code>. Product names, descriptions and blog text stay in Azerbaijani. In production this is replaced by PrestaShop languages and translations.</p></header>
+        <div class="cc-stage cc-stage--dark"><div class="vs-lang" role="group" aria-label="Dil (demo)"><button data-lang="AZ" aria-pressed="true">AZ</button><button data-lang="RU" aria-pressed="false">RU</button><button data-lang="EN" aria-pressed="false">EN</button></div></div>
+      </section>
+
+      <section class="cc-sec" id="buttons">
+        <header><h2>Buttons &amp; links</h2><p><code>.vs-btn</code> with modifiers. Hover, active (1px press) and focus are interactive. Disabled and loading are shown statically.</p></header>
+        <div class="cc-row">
+          <button class="vs-btn">Default</button>
+          <button class="vs-btn vs-btn--primary">Primary</button>
+          <button class="vs-btn vs-btn--outline">Outline</button>
+          <button class="vs-btn vs-btn--ghost">Ghost</button>
+          <button class="vs-btn vs-btn--primary" disabled>Disabled</button>
+          <button class="vs-btn vs-btn--primary is-loading" aria-busy="true">Loading</button>
+        </div>
+        <div class="cc-row"><button class="vs-btn vs-btn--sm">Small</button><button class="vs-btn">Default</button><button class="vs-btn vs-btn--lg">Large</button></div>
+        <div class="cc-stage cc-stage--dark cc-row"><a class="vs-btn vs-btn--primary" href="#buttons">Məhsullara bax</a><a class="vs-btn vs-btn--on-dark" href="#buttons">Kataloqa bax</a></div>
+        <div class="cc-row"><a href="#buttons">Default link (ink → red on hover)</a><a class="vs-sechead__link" href="#buttons">Hamısına bax →</a><a class="vs-catcard__cta" href="#buttons">Kəşf et →</a></div>
+        <div class="cc-row">
+          <button class="vs-iconbtn" aria-label="Axtarış" data-icon="search"></button>
+          <button class="vs-iconbtn" aria-label="Seçilmişlər" data-icon="heart"><span class="vs-iconbtn__count">3</span></button>
+          <button class="vs-iconbtn vs-iconbtn--round" style="background:var(--vs-surface)" aria-label="Seçilmiş (aktiv)" aria-pressed="true" data-icon="heart"></button>
+          <button class="vs-iconbtn" disabled aria-label="Disabled" data-icon="user"></button>
+        </div>
+      </section>
+
+      <section class="cc-sec" id="badges">
+        <header><h2>Badges &amp; price</h2><p>Badges are rendered only when the data supports them (<code>is_new</code>, <code>regular_price &gt; price</code>, <code>quantity</code>). Price 0 shows “Qiymət üçün zəng edin”.</p></header>
+        <div class="cc-row"><span class="vs-badge vs-badge--new">Yeni</span><span class="vs-badge vs-badge--sale">−20%</span><span class="vs-badge vs-badge--out">Stokda yoxdur</span><span class="vs-stock vs-stock--in">Stokda var</span><span class="vs-stock vs-stock--low">Stokda az qalıb</span><span class="vs-stock vs-stock--out">Stokda yoxdur</span></div>
+        <div class="cc-row" data-prices></div>
+      </section>
+
+      <section class="cc-sec" id="breadcrumb">
+        <header><h2>Breadcrumb</h2><p>Built from the category parent chain. Last item is <code>aria-current="page"</code>.</p></header>
+        <ol class="vs-breadcrumb"><li><a href="index.html">Ana səhifə</a></li><li><a href="#breadcrumb">Fitness avadanlıqları və aksesuarları</a></li><li><a href="#breadcrumb">Kardio trenajorlar</a></li><li><span aria-current="page">Qaçış qurğuları</span></li></ol>
+      </section>
+
+      <section class="cc-sec" id="cards">
+        <header><h2>Product cards</h2><p><code>VS.card(product)</code> in <code>js/app.js</code> — the only product-card renderer, used by home rails, category grid, search, related products and quick view. Each example is the first product in <code>data/products.json</code> that matches the state.</p></header>
+        <div class="cc-grid" data-cards lang="az"></div>
+        <div class="cc-note">PrestaShop: <code>catalog/_partials/miniatures/product.tpl</code>. Hover: border to ink, image scale 1.05, “Sürətli baxış” slides in (hidden on touch ≤600px). The whole card is a link to the product page; wishlist and quick view sit above that link.</div>
+      </section>
+
+      <section class="cc-sec" id="catcards">
+        <header><h2>Category &amp; brand cards</h2><p>Category cards on the home page link to category IDs. Brand cards show the logo when a file exists in <code>assets/img/brands/</code>, otherwise the brand name.</p></header>
+        <div class="cc-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
+          <a class="vs-catcard" href="#catcards"><div class="vs-catcard__media"><img src="assets/img/cats/1.png" alt=""></div><span class="vs-catcard__name">Fitness</span><span class="vs-catcard__cta">Kəşf et →</span></a>
+          <a class="vs-catcard" href="#catcards"><div class="vs-catcard__media"><img src="assets/img/cats/9.png" alt=""></div><span class="vs-catcard__name">Boks</span><span class="vs-catcard__cta">Kəşf et →</span></a>
+        </div>
+        <div class="vs-grid vs-grid--brands" data-brand-demo></div>
+      </section>
+
+      <section class="cc-sec" id="forms">
+        <header><h2>Form controls</h2><p>Used by filters, newsletter and the login / registration demo.</p></header>
+        <div class="cc-grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">
+          <label class="vs-field">E-poçt<input class="vs-input" type="email" placeholder="ad@nümunə.az"><span class="vs-field__msg">Default</span></label>
+          <label class="vs-field is-error">E-poçt<input class="vs-input" type="email" value="ad@" aria-invalid="true"><span class="vs-field__msg">Düzgün e-poçt ünvanı yazın</span></label>
+          <label class="vs-field">Disabled<input class="vs-input" disabled value="—"></label>
+          <label class="vs-field">Sırala<select class="vs-select"><option>Sırala</option><option>Yenilər</option><option>Ucuzdan bahaya</option></select></label>
+        </div>
+        <div class="cc-row"><label class="vs-check"><input type="checkbox" checked>Checked</label><label class="vs-check"><input type="checkbox">Unchecked</label><label class="vs-check"><input type="checkbox" disabled>Disabled</label></div>
+        <div class="vs-chips"><a class="vs-chip" href="#forms">Qaçış qurğuları <span class="vs-chip__count">48</span></a><a class="vs-chip is-active" aria-current="true" href="#forms">Velotrenajorlar <span class="vs-chip__count">31</span></a><button class="vs-chip vs-chip--removable">VolksGYM</button></div>
+      </section>
+
+      <section class="cc-sec" id="search">
+        <header><h2>Search</h2><p>The header field is a button that opens the full-screen overlay (<kbd>⌘K</kbd> / <kbd>Ctrl K</kbd>). Empty query: recent searches + popular categories. Typing: matching categories, brands and up to 8 products; no match shows an empty state. Enter goes to <code>category.html?q=</code>.</p></header>
+        <div class="cc-row"><button class="vs-search" data-search-open style="max-width:520px"><span data-icon-inline="search"></span><span>Axtarış...</span><span class="vs-search__kbd">⌘K</span></button></div>
+        <div class="cc-note">Frontend search reads the full JSON in the browser. Production must use PrestaShop search (AJAX) — see PRESTASHOP-INTEGRATION.md §6.</div>
+      </section>
+
+      <section class="cc-sec" id="filters">
+        <header><h2>Filters, sorting &amp; pagination</h2><p>Desktop: left sidebar (accordion groups). ≤1024px: “Filtrlər” button opens a bottom sheet. A group is rendered only when the current product set has more than one value for it. State is kept in the URL.</p></header>
+        <div class="cc-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:start">
+          <aside class="vs-filters vs-acc cc-stage">
+            <div class="vs-acc__item vs-filters__group"><button class="vs-acc__head" aria-expanded="true">Brend</button><div class="vs-acc__body"><div class="vs-acc__inner"><div class="vs-filters__list"><label class="vs-check"><input type="checkbox" checked>VolksGYM<span class="vs-check__count">12</span></label><label class="vs-check"><input type="checkbox">Kettler<span class="vs-check__count">4</span></label></div></div></div></div>
+            <div class="vs-acc__item vs-filters__group"><button class="vs-acc__head" aria-expanded="false">Qiymət, AZN</button><div class="vs-acc__body"><div class="vs-acc__inner"><div class="vs-filters__range"><input class="vs-input" type="number" placeholder="99" aria-label="Min"><input class="vs-input" type="number" placeholder="4999" aria-label="Max"></div></div></div></div>
+            <div class="vs-acc__item vs-filters__group"><button class="vs-acc__head" aria-expanded="false">Mövcudluq</button><div class="vs-acc__body"><div class="vs-acc__inner"><label class="vs-check"><input type="checkbox">Stokda var</label></div></div></div></div>
+          </aside>
+          <div class="cc-cell">
+            <div class="vs-toolbar"><button class="vs-btn vs-btn--outline vs-btn--sm" data-sheet-open style="display:inline-flex">Filtrlər (1)</button><select class="vs-select" style="margin-left:auto" aria-label="Sırala"><option>Sırala</option><option>Yenilər</option><option>Ad A-Z</option><option>Ad Z-A</option><option>Ucuzdan bahaya</option><option>Bahadan ucuza</option></select></div>
+            <div class="vs-filters__active"><button class="vs-chip vs-chip--removable">VolksGYM</button><button class="vs-btn vs-btn--ghost vs-btn--sm">Təmizlə</button></div>
+            <nav class="vs-pagination" aria-label="Səhifələr (demo)"><button class="vs-pagination__item" disabled aria-label="Əvvəlki">‹</button><button class="vs-pagination__item" aria-current="page">1</button><button class="vs-pagination__item">2</button><span class="vs-pagination__gap">…</span><button class="vs-pagination__item">9</button><button class="vs-pagination__item" aria-label="Növbəti">›</button></nav>
+          </div>
+        </div>
+      </section>
+
+      <section class="cc-sec" id="gallery">
+        <header><h2>Product gallery, zoom &amp; full-screen</h2><p>Thumbnails (only when there is more than one image), hover zoom that follows the cursor (devices with hover), click or the corner button opens a white full-screen viewer; click inside the viewer toggles 2× zoom; arrow keys switch images; <kbd>Esc</kbd> closes.</p></header>
+        <div class="cc-row"><a class="vs-btn vs-btn--outline" data-live-pdp href="product.html">Open on a live product page →</a><span class="cc-meta">Logic lives in VS.pages.product (js/pages.js); it is not duplicated here.</span></div>
+        <div class="cc-meta">Classes: vs-gallery, vs-gallery__thumbs, vs-gallery__thumb, vs-gallery__main(.is-zoom), vs-gallery__fs, vs-viewer(.is-open .is-zoom), vs-viewer__bar, vs-viewer__stage</div>
+      </section>
+
+      <section class="cc-sec" id="tabs">
+        <header><h2>Product information tabs &amp; specification table</h2><p>On the product page a tab is rendered only when its data exists (<code>features[]</code> → “Texniki xüsusiyyətlər”, <code>description</code> → “Təsvir”). Arrow keys move between tabs. Example below uses the first product in the data with features.</p></header>
+        <div class="vs-tabs" data-tabs-demo></div>
+      </section>
+
+      <section class="cc-sec" id="wish">
+        <header><h2>Wishlist &amp; quick view</h2><p>The heart on any card (also in the product cards above) toggles the item in <code>localStorage</code>, updates the header counter and shows a toast. “Sürətli baxış” opens a modal with focus trap; <kbd>Esc</kbd>, the × button or the backdrop closes it and returns focus.</p></header>
+        <div class="cc-row"><button class="vs-btn vs-btn--outline" data-quick-demo>Open quick view</button><a class="vs-btn vs-btn--ghost" href="category.html?wishlist=1">Wishlist listing →</a></div>
+        <div class="cc-note">Frontend-only. Production wishlist requires a PrestaShop wishlist module and a customer account.</div>
+      </section>
+
+      <section class="cc-sec" id="messages">
+        <header><h2>Notifications &amp; messages</h2><p><code>VS.toast(text, type)</code> — status region, auto-dismiss after 2.6s. Alerts are used inline in forms.</p></header>
+        <div class="cc-row"><button class="vs-btn" data-toast="">Show toast</button><button class="vs-btn vs-btn--outline" data-toast="error">Show error toast</button></div>
+        <div class="cc-cell"><div class="vs-alert">Neutral alert</div><div class="vs-alert vs-alert--success">Uğurla göndərildi</div><div class="vs-alert vs-alert--warning">Diqqət: məlumat tam deyil</div><div class="vs-alert vs-alert--error">Xəta baş verdi. Yenidən cəhd edin.</div></div>
+      </section>
+
+      <section class="cc-sec" id="accordion">
+        <header><h2>Accordion (FAQ, filters)</h2><p>Global click handler toggles <code>aria-expanded</code>; height animates with CSS grid rows. FAQ items come from <code>data/faq.json</code>, which is currently empty, so the FAQ page shows no questions.</p></header>
+        <div class="vs-acc" style="max-width:720px">
+          <div class="vs-acc__item"><button class="vs-acc__head" aria-expanded="true">Sual (nümunə strukturu)</button><div class="vs-acc__body"><div class="vs-acc__inner"><p>Cavab mətni data/faq.json → items[].a sahəsindən gəlir.</p></div></div></div>
+          <div class="vs-acc__item"><button class="vs-acc__head" aria-expanded="false">Bağlı vəziyyət</button><div class="vs-acc__body"><div class="vs-acc__inner"><p>—</p></div></div></div>
+        </div>
+        <span class="cc-flag">Structure demo only — not real FAQ content</span>
+      </section>
+
+      <section class="cc-sec" id="blog">
+        <header><h2>Blog: featured, cards, article, related</h2><p>Rendered from <code>data/blog.json</code> (23 articles). Featured = newest article; cards open <code>blog-post.html?id=</code>; article page shows date, cover, full text, “← Bloqa qayıt” and 3 related articles.</p></header>
+        <div data-blog-demo lang="az"></div>
+        <div class="cc-meta">Classes: vs-blog-feature(__media __body), vs-blog-grid, vs-post(__media __meta __title, .is-empty), vs-article(__title __cover __body)</div>
+      </section>
+
+      <section class="cc-sec" id="empty">
+        <header><h2>Empty states</h2><p>Shown when a list has no data. FAQ currently renders an empty list without a message (client decision).</p></header>
+        <div class="cc-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+          <div class="cc-stage"><span class="cc-label">Category — no products after filtering</span><div class="vs-empty"><span class="vs-empty__title">Bu seçimlə məhsul tapılmadı</span><span class="vs-empty__text">Filtrləri azaldın və ya başqa kateqoriyaya keçin.</span><button class="vs-btn vs-btn--outline">Filtrləri təmizlə</button></div></div>
+          <div class="cc-stage"><span class="cc-label">Blog — blog.json has no posts</span><div class="vs-empty"><span class="vs-empty__title">Məqalələr hələ əlavə olunmayıb</span><span class="vs-empty__text">Yeni məqalələr burada görünəcək.</span><a class="vs-btn vs-btn--outline" href="category.html">Kataloqa keç</a></div></div>
+          <div class="cc-stage"><span class="cc-label">Search — no match</span><div class="vs-empty"><span class="vs-empty__title">“xyz” üzrə heç nə tapılmadı</span><span class="vs-empty__text">Yazılışı yoxlayın və ya daha qısa söz yazın, məsələn “qantel”.</span></div></div>
+          <div class="cc-stage"><span class="cc-label">Product — id not found</span><div class="vs-empty"><span class="vs-empty__title">Məhsul tapılmadı</span><span class="vs-empty__text">Bu məhsul silinib və ya link səhvdir.</span><a class="vs-btn" href="category.html">Kataloqa keç</a></div></div>
+        </div>
+      </section>
+
+      <section class="cc-sec" id="store">
+        <header><h2>Store information</h2><p>One branch. Address, phones and coordinates are taken from the original design file and the Google Maps link supplied by the client.</p></header>
+        <div class="vs-store__card" style="max-width:520px">
+          <span class="vs-eyebrow">VOLKS SPORT</span>
+          <dl class="vs-store__list">
+            <div><dt>Ünvan</dt><dd>Təbriz 79, Bakı</dd></div>
+            <div><dt>Telefon</dt><dd><a href="tel:+994125672767">012 567 27 67</a><br><a href="tel:+994502002627">050 200 26 27</a></dd></div>
+            <div><dt>E-poçt</dt><dd><a href="mailto:info@volkssport.az">info@volkssport.az</a></dd></div>
+            <div><dt>İş saatları</dt><dd>Bazar ertəsi – şənbə: 09:00⁠–⁠21:00<br>Bazar: 10:00⁠–⁠21:00</dd></div>
+          </dl>
+          <div class="vs-store__actions"><a class="vs-btn vs-btn--primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=40.3991527,49.8654493" target="_blank" rel="noopener noreferrer">İstiqamət al →</a><a class="vs-btn vs-btn--outline" href="tel:+994125672767">Zəng et</a></div>
+        </div>
+        <span class="cc-flag">Opening hours confirmed by the client on 2026-10-27</span>
+      </section>
+
+      <section class="cc-sec" id="unused">
+        <header><h2>Present in CSS, not used on any page</h2><p>Defined in <code>css/components.css</code> but not rendered by any page. Keep or remove during theme conversion.</p></header>
+        <div class="cc-meta">vs-qty (quantity selector — no cart in scope) · vs-rating (no rating data) · vs-drawer (cart drawer removed) · vs-spec--compare (no comparison page)</div>
+      </section>
+
+      <section class="cc-sec" id="footer" style="padding-bottom:0">
+        <header><h2>Footer</h2><p>Live below (<code>partials/footer.html</code>): newsletter form (frontend validation only), link columns, Instagram and Facebook, contact. PrestaShop: <code>_partials/footer.tpl</code> + newsletter module.</p></header>
+      </section>
+    </div>
+  </div>
+</main>
+<div class="vs-scrim"></div>
+<div class="vs-sheet" role="dialog" aria-modal="true" aria-label="Filtrlər (demo)">
+  <div class="vs-sheet__head">Filtrlər <button class="vs-iconbtn" data-sheet-close aria-label="Bağla" data-icon="close"></button></div>
+  <div class="vs-sheet__body vs-acc"><div class="vs-acc__item vs-filters__group"><button class="vs-acc__head" aria-expanded="true">Brend</button><div class="vs-acc__body"><div class="vs-acc__inner"><label class="vs-check"><input type="checkbox" checked>VolksGYM</label></div></div></div></div></div>
+  <div class="vs-sheet__foot"><button class="vs-btn vs-btn--outline" style="flex:1" data-sheet-close>Təmizlə</button><button class="vs-btn vs-btn--primary" style="flex:2" data-sheet-close>Göstər</button></div>
+</div>
+<div data-include="partials/footer.html"></div>
+<script src="js/i18n.js?v=20261022"></script>
+<script src="js/app.js?v=20261022"></script>
+<script src="js/pages.js?v=20261022"></script>
+<script src="js/pages-info.js?v=20261022"></script>
+<script>
+/* Catalogue wiring only. Reuses VS.card, VS.icon, VS.toast, VS.quickView, VS.renderBrands. */
+(function () {
+  const VS = window.VS; const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  VS.pages.components = async () => {
+    const { esc } = VS;
+    $$('[data-icon]').forEach(b => b.insertAdjacentHTML('afterbegin', VS.icon(b.dataset.icon)));
+    $$('[data-icon-inline]').forEach(s => { s.outerHTML = VS.icon(s.dataset.iconInline); });
+
+    const cs = getComputedStyle(document.documentElement);
+    const sw = ['--vs-ink', '--vs-red', '--vs-yellow', '--vs-white', '--vs-text-2', '--vs-text-3', '--vs-border', '--vs-hairline', '--vs-surface', '--vs-surface-2', '--vs-success', '--vs-success-bg', '--vs-warning', '--vs-warning-bg', '--vs-red-hover', '--vs-dark-1'];
+    $('[data-swatches]').innerHTML = sw.map(v => `<div class="cc-swatch"><i style="background:var(${v})"></i><strong>${v.replace('--vs-', '')}</strong><span class="cc-meta">${cs.getPropertyValue(v).trim()}</span></div>`).join('');
+
+    const [all, blog] = await Promise.all([VS.data.products(), fetch('data/blog.json').then(r => r.json()).catch(() => ({ posts: [] }))]);
+    const pick = f => all.find(f);
+    const base = pick(p => p.quantity > 2 && p.price > 0 && !(p.regular_price > p.price) && VS.data.brandLogo(p.manufacturer_name) && p.cover);
+    const states = [
+      ['Default · in stock', base],
+      ['Discount (regular_price > price)', pick(p => p.regular_price > p.price && p.quantity > 0)],
+      ['New (is_new)', pick(p => p.is_new)],
+      ['Low stock (quantity 1–2)', pick(p => p.quantity > 0 && p.quantity <= 2 && p.price > 0)],
+      ['Out of stock (quantity 0)', pick(p => !(p.quantity > 0))],
+      ['Price 0 → call for price', pick(p => !(p.price > 0))],
+      ['No brand', pick(p => !p.manufacturer_name && p.price > 0)],
+      ['Missing image (simulated)', base && { ...base, id_product: -1, cover: 'assets/img/__missing__.jpg' }]
+    ];
+    $('[data-cards]').innerHTML = states.map(([l, p]) => `<div class="cc-cell"><span class="cc-label">${esc(l)}${p ? '' : ' — no example in data'}</span>${p ? VS.card(p) : ''}</div>`).join('') +
+      `<div class="cc-cell"><span class="cc-label">Loading skeleton</span>${VS.skeletons(1)}</div>`;
+    $$('[data-cards] [data-id="-1"] a, [data-cards] [data-id="-1"] [data-wish], [data-cards] [data-id="-1"] [data-quick]').forEach(el => el.removeAttribute('href') || el.setAttribute('disabled', ''));
+
+    $('[data-prices]').innerHTML = [
+      '<div class="vs-price"><span class="vs-price__current">899 AZN</span></div>',
+      '<div class="vs-price vs-price--sale"><span class="vs-price__current">719 AZN</span><span class="vs-price__old">899 AZN</span></div>',
+      '<div class="vs-price vs-price--call"><span class="vs-price__current">Qiymət üçün zəng edin</span></div>',
+      '<div class="vs-price vs-price--lg vs-price--sale"><span class="vs-price__current">719 AZN</span><span class="vs-price__old">899 AZN</span><span class="vs-price__save">−20% · −180 AZN</span></div>'
+    ].map(h => `<div class="cc-stage">${h}</div>`).join('');
+    $$('[data-prices] .cc-stage').forEach(s => s.insertAdjacentHTML('afterbegin', '<span class="cc-label" style="display:block;margin-bottom:8px">format sample</span>'));
+
+    const brands = {}; all.forEach(p => { if (p.manufacturer_name) brands[p.manufacturer_name] = (brands[p.manufacturer_name] || 0) + 1; });
+    const withLogo = Object.keys(brands).find(b => VS.data.brandLogo(b)), noLogo = Object.keys(brands).find(b => !VS.data.brandLogo(b));
+    $('[data-brand-demo]').innerHTML = [withLogo, noLogo].filter(Boolean).map(b => { const l = VS.data.brandLogo(b); return `<a class="vs-brandcard" href="category.html?brand=${encodeURIComponent(b)}" aria-label="${esc(b)}">${l ? `<img src="${l}" alt="${esc(b)}">` : `<span class="vs-brandcard__name">${esc(b)}</span>`}</a>`; }).join('');
+
+    const fp = pick(p => p.features && p.features.length);
+    if (fp) {
+      $('[data-live-pdp]').href = 'product.html?id=' + fp.id_product;
+      const tabs = [['spec', 'Texniki xüsusiyyətlər', `<table class="vs-spec"><tbody>${fp.features.map(x => `<tr><th scope="row">${esc(x.name)}</th><td>${esc(x.value)}</td></tr>`).join('')}</tbody></table>`], ['desc', 'Təsvir', fp.description ? `<div class="vs-desc">${fp.description}</div>` : '<p class="vs-muted">Bu məhsulda təsvir yoxdur — səhifədə bu tab göstərilmir.</p>']];
+      const el = $('[data-tabs-demo]');
+      el.innerHTML = `<div class="cc-label" style="margin-bottom:8px">Data: ${esc(fp.name)}</div><div class="vs-tabs__list" role="tablist">${tabs.map(([k, t], i) => `<button class="vs-tabs__tab" role="tab" id="cc-tab-${k}" aria-controls="cc-panel-${k}" aria-selected="${!i}" tabindex="${i ? -1 : 0}">${t}</button>`).join('')}<button class="vs-tabs__tab" role="tab" disabled aria-selected="false" tabindex="-1">Disabled</button></div>${tabs.map(([k, , h], i) => `<div class="vs-tabs__panel" role="tabpanel" id="cc-panel-${k}" aria-labelledby="cc-tab-${k}" ${i ? 'hidden' : ''}>${h}</div>`).join('')}`;
+      el.addEventListener('click', e => { const b = e.target.closest('[role="tab"]:not([disabled])'); if (!b) return; $$('[data-tabs-demo] [role="tab"]').forEach(x => { const on = x === b; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; const pnl = x.getAttribute('aria-controls'); if (pnl) document.getElementById(pnl).hidden = !on; }); });
+    }
+
+    $('[data-quick-demo]').addEventListener('click', () => VS.quickView(base));
+    $$('[data-toast]').forEach(b => b.addEventListener('click', () => VS.toast(b.dataset.toast ? 'Məlumat yüklənmədi' : 'Seçilmişlərə əlavə olundu', b.dataset.toast)));
+
+    const sheet = $('.vs-sheet'), scrim = $('.vs-scrim');
+    const setSheet = v => { sheet.classList.toggle('is-open', v); scrim.classList.toggle('is-open', v); document.body.classList.toggle('vs-no-scroll', v); };
+    $$('[data-sheet-open]').forEach(b => b.addEventListener('click', () => setSheet(true)));
+    $$('[data-sheet-close]').forEach(b => b.addEventListener('click', () => setSheet(false)));
+    scrim.addEventListener('click', () => setSheet(false));
+
+    const posts = (blog.posts || []).slice().sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+    const card = VS.postCard;
+    const noImg = posts.find(p => !p.image);
+    $('[data-blog-demo]').innerHTML = posts.length ? `<div class="cc-label" style="margin-bottom:8px">Article cards (first 3 + a card without image if one exists)</div><div class="vs-blog-grid">${[...posts.slice(0, 3), ...(noImg && !posts.slice(0, 3).includes(noImg) ? [noImg] : [])].map(card).join('')}</div><div class="cc-row" style="margin-top:20px"><a class="vs-btn vs-btn--outline" href="blog.html">Blog listing →</a><a class="vs-btn vs-btn--outline" href="${esc(posts[0].url)}">Article layout →</a></div>` : '<p class="vs-muted">blog.json has no posts.</p>';
+  };
+})();
+</script>
+</body>
+</html>

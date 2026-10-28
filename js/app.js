@@ -22,6 +22,21 @@
   const P = { search: '<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>', user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>', heart: '<path d="M12 20s-7-4.4-9-9.2C1.8 7.6 4 4.5 7.2 4.5c2 0 3.6 1.2 4.8 2.9 1.2-1.7 2.8-2.9 4.8-2.9 3.2 0 5.4 3.1 4.2 6.3C19 15.6 12 20 12 20z"/>', menu: '<path d="M3 6h18M3 12h18M3 18h18"/>', close: '<path d="M5 5l14 14M19 5L5 19"/>', chev: '<path d="M9 5l7 7-7 7"/>', back: '<path d="M15 5l-7 7 7 7"/>', home: '<path d="M3 11l9-7 9 7v9H3z"/>', grid: '<rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/>', expand: '<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>', phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/>', pin: '<path d="M12 21s-7-6.2-7-11.5A7 7 0 0112 2.5a7 7 0 017 7C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>', filter: '<path d="M4 6h16M7 12h10M10 18h4"/>', ig: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>', fb: '<path d="M14 8h3V4h-3a4 4 0 00-4 4v2H7v4h3v7h4v-7h3l1-4h-4V8z"/>' };
   VS.icon = (n, extra = '') => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ${extra}>${P[n] || ''}</svg>`;
 
+  /* ---------- Stock state (one helper for every page) ----------
+     quantity > 0 -> 'in' ("Stokda var") · quantity 0 -> 'out' ("Stokda yoxdur") · no quantity -> 'unknown' (no label).
+     'unknown' is NOT treated as in stock: those products stay out of in-stock-only lists.
+     STOCK_OVERRIDE = PROTOTYPE ONLY. Client confirmed these are in stock but the real quantity is unknown, so
+     products.json is left unchanged. Do NOT carry this list into PrestaShop: fix the quantity in Admin instead. */
+  const STOCK_OVERRIDE = { 3373: 'in' }; // H-1-12 Universal Skamya — client-confirmed in stock (2026-10-28)
+  VS.stock = p => {
+    if (!p) return 'unknown';
+    if (STOCK_OVERRIDE[p.id_product]) return STOCK_OVERRIDE[p.id_product];
+    const q = p.quantity;
+    if (q === null || q === undefined || q === '' || Number.isNaN(Number(q))) return 'unknown';
+    return Number(q) > 0 ? 'in' : 'out';
+  };
+  VS.inStock = p => VS.stock(p) === 'in';
+
   /* ---------- Data adapter (replace with PrestaShop Smarty / AJAX) ---------- */
   const cache = {};
   const load = url => (cache[url] = cache[url] || fetch(url).then(r => { if (!r.ok) throw new Error(url); return r.json(); }));
@@ -65,7 +80,7 @@
   /* ---------- Product card (PrestaShop: catalog/_partials/miniatures/product.tpl) ---------- */
   VS.card = p => {
     const sale = p.regular_price && p.regular_price > p.price;
-    const out = !(p.quantity > 0);
+    const out = VS.stock(p) === 'out';
     const pct = sale ? Math.round((1 - p.price / p.regular_price) * 100) : 0;
     const url = 'product.html?id=' + p.id_product;
     // Hover image swap: second photo = first entry of optional `images` that differs from cover. None → no swap.

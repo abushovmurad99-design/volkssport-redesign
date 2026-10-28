@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hesabım — VOLKS SPORT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=20261022">
+<link rel="stylesheet" href="css/base.css?v=20261022">
+<link rel="stylesheet" href="css/components.css?v=20261022">
+<link rel="stylesheet" href="css/layout.css?v=20261022">
+<link rel="stylesheet" href="css/pages.css?v=20261022">
+</head>
+<body data-page="account">
+<div data-include="partials/header.html"></div>
+<!-- PrestaShop: blog module listing. Posts come from data/blog.json -->
+<!-- PrestaShop: customer/authentication.tpl + customer/registration.tpl. UI only — submission is handled by PrestaShop AuthController. No credentials are stored in this build. -->
+<!-- PrestaShop: customer/my-account.tpl -->
+<main class="vs-container">
+  <div class="vs-pagehead"><ol class="vs-breadcrumb"><li><a href="index.html">Ana səhifə</a></li><li><span aria-current="page">Hesabım</span></li></ol></div>
+  <div class="vs-auth">
+    <section class="vs-auth__col">
+      <span class="vs-eyebrow">Hesabım</span>
+      <h1 class="vs-h2" data-acc-name></h1>
+      <table class="vs-spec"><tbody data-acc-rows></tbody></table>
+      <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="vs-btn" href="category.html?wishlist=1">Seçilmişlər (<span data-wish-total>0</span>)</a><button class="vs-btn vs-btn--outline" type="button" data-logout>Çıxış</button></div>
+    </section>
+  </div>
+</main>
+<div data-include="partials/footer.html"></div>
+<script src="js/i18n.js?v=20261022"></script>
+<script src="js/app.js?v=20261022"></script>
+<script src="js/pages.js?v=20261022"></script>
+<script src="js/pages-info.js?v=20261022"></script>
+</body>
+</html>
