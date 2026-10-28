@@ -1,0 +1,233 @@
+/* ================= Button ================= */
+.vs-btn { --bg: var(--vs-ink); --fg: var(--vs-white); --bd: var(--vs-ink);
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: var(--vs-h-lg); padding: 0 26px;
+  background: var(--bg); color: var(--fg); border: var(--vs-bw-strong) solid var(--bd); border-radius: var(--vs-radius);
+  font-size: var(--vs-fs-sm); font-weight: 800; letter-spacing: var(--vs-track-caps); text-transform: uppercase; white-space: nowrap;
+  transition: background var(--vs-t-fast), color var(--vs-t-fast), border-color var(--vs-t-fast), transform var(--vs-t-fast); }
+.vs-btn:hover { --bg: #000; --bd: #000; color: var(--fg); }
+.vs-btn:active { transform: translateY(1px); }
+.vs-btn--primary { --bg: var(--vs-red); --bd: var(--vs-red); }
+.vs-btn--primary:hover { --bg: var(--vs-red-hover); --bd: var(--vs-red-hover); }
+.vs-btn--primary:active { --bg: var(--vs-red-active); }
+.vs-btn--outline { --bg: transparent; --fg: var(--vs-ink); --bd: var(--vs-ink); }
+.vs-btn--outline:hover { --bg: var(--vs-ink); --fg: var(--vs-white); }
+.vs-btn--on-dark { --bg: transparent; --fg: var(--vs-white); --bd: var(--vs-white); }
+.vs-btn--on-dark:hover { --bg: var(--vs-white); --fg: var(--vs-ink); --bd: var(--vs-white); }
+.vs-btn--ghost { --bg: transparent; --fg: var(--vs-ink); --bd: transparent; padding: 0 12px; }
+.vs-btn--ghost:hover { --bg: var(--vs-surface); --bd: var(--vs-surface); --fg: var(--vs-ink); }
+.vs-btn--sm { height: var(--vs-h-sm); padding: 0 14px; font-size: var(--vs-fs-xs); }
+.vs-btn--lg { height: var(--vs-h-xl); padding: 0 32px; font-size: var(--vs-fs-ui); }
+.vs-btn--block { width: 100%; }
+.vs-btn:disabled, .vs-btn[aria-disabled="true"] { --bg: var(--vs-surface); --fg: var(--vs-text-disabled); --bd: var(--vs-surface); cursor: not-allowed; transform: none; }
+.vs-btn.is-loading { color: transparent !important; position: relative; pointer-events: none; }
+.vs-btn.is-loading::after { content: ""; position: absolute; width: 18px; height: 18px; border: 2px solid var(--fg); border-right-color: transparent; border-radius: 50%; animation: vs-spin .7s linear infinite; }
+@keyframes vs-spin { to { transform: rotate(360deg); } }
+
+/* ================= Icon button ================= */
+.vs-iconbtn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 44px; height: 44px; padding: 0 8px; border: 0; background: transparent; color: var(--vs-ink); font-size: var(--vs-fs-xs); font-weight: 700; position: relative; transition: background var(--vs-t-fast), color var(--vs-t-fast); }
+.vs-iconbtn:hover { background: var(--vs-surface); }
+.vs-iconbtn svg { width: 22px; height: 22px; flex: none; }
+.vs-iconbtn--round { border-radius: 50%; background: var(--vs-white); width: 36px; min-width: 36px; height: 36px; padding: 0; }
+.vs-iconbtn--round svg { width: 18px; height: 18px; }
+.vs-iconbtn[aria-pressed="true"] { color: var(--vs-red); }
+.vs-iconbtn[aria-pressed="true"] svg { fill: currentColor; animation: vs-pop .3s var(--vs-ease); }
+.vs-iconbtn:disabled { color: var(--vs-text-disabled); cursor: not-allowed; background: transparent; }
+.vs-iconbtn__count { position: absolute; top: 4px; right: 2px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--vs-red); color: var(--vs-white); font-size: 10.5px; font-weight: 800; line-height: 18px; text-align: center; }
+@keyframes vs-pop { 50% { transform: scale(1.25); } }
+
+/* ================= Badge ================= */
+.vs-badge { display: inline-flex; align-items: center; height: 22px; padding: 0 7px; font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; background: var(--vs-ink); color: var(--vs-white); }
+.vs-badge--sale { background: var(--vs-sale); }
+.vs-badge--new { background: var(--vs-new); }
+.vs-badge--stock { background: var(--vs-success-bg); color: var(--vs-success); }
+.vs-badge--low { background: var(--vs-warning-bg); color: #7A5A00; }
+.vs-badge--out { background: var(--vs-surface); color: var(--vs-text-2); }
+
+/* ================= Price ================= */
+.vs-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
+.vs-price__current { font-size: var(--vs-fs-price); font-weight: 900; letter-spacing: -.01em; line-height: 1; }
+.vs-price__old { font-size: var(--vs-fs-sm); color: var(--vs-text-3); text-decoration: line-through; }
+.vs-price__save { font-size: var(--vs-fs-2xs); font-weight: 800; background: var(--vs-red); color: var(--vs-white); padding: 3px 6px; }
+.vs-price--sale .vs-price__current { color: var(--vs-sale); }
+.vs-price--call .vs-price__current { font-size: var(--vs-fs-sm); font-weight: 700; }
+.vs-price--lg .vs-price__current { font-size: var(--vs-fs-price-lg); }
+.vs-price--lg .vs-price__old { font-size: 16px; }
+
+/* ================= Product card ================= */
+.vs-card { position: relative; display: flex; flex-direction: column; background: var(--vs-white); min-width: 0; }
+.vs-card__media { position: relative; aspect-ratio: 1; background: var(--vs-white); border: var(--vs-bw) solid var(--vs-hairline); overflow: hidden; transition: border-color var(--vs-t); }
+.vs-card__media img { width: 100%; height: 100%; object-fit: contain; padding: 14px; transition: transform var(--vs-t-slow) var(--vs-ease); }
+.vs-card:hover .vs-card__media { border-color: var(--vs-ink); }
+.vs-card:hover .vs-card__media img { transform: scale(1.05); }
+.vs-card__media.is-error::after { content: "Şəkil yoxdur"; position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--vs-font-mono); font-size: 11px; color: var(--vs-text-3); background: var(--vs-surface-2); }
+/* Hover image swap (desktop mouse only; class set by js/app.js). Second photo is stacked over the cover. */
+.vs-card .vs-card__media img.vs-card__alt { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity 280ms ease, transform var(--vs-t-slow) var(--vs-ease); }
+.vs-card .vs-card__media.is-alt img.vs-card__alt { opacity: 1; }
+.vs-card--out .vs-card__media.is-alt img.vs-card__alt { opacity: .45; }
+.vs-card__media:has(.vs-card__alt) img:not(.vs-card__alt) { transition: transform var(--vs-t-slow) var(--vs-ease), opacity 280ms ease; }
+.vs-card .vs-card__media.is-alt img:not(.vs-card__alt) { opacity: 0; }
+.vs-card__badges { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; z-index: 1; }
+.vs-card__wish { position: absolute; top: 8px; right: 8px; z-index: 2; }
+.vs-card__quick { position: absolute; left: 10px; right: 10px; bottom: 10px; z-index: 2; opacity: 0; transform: translateY(6px); transition: opacity var(--vs-t), transform var(--vs-t); }
+.vs-card:hover .vs-card__quick, .vs-card:focus-within .vs-card__quick { opacity: 1; transform: none; }
+.vs-card__body { display: flex; flex-direction: column; gap: 4px; padding: 12px 2px 0; flex: 1; }
+.vs-card__brand { font-size: var(--vs-fs-2xs); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--vs-text-2); }
+.vs-card__name { font-size: var(--vs-fs-ui); font-weight: 600; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.7em; }
+.vs-card__name a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.vs-card__code { font-family: var(--vs-font-mono); font-size: var(--vs-fs-2xs); color: var(--vs-text-3); }
+.vs-card__price { margin-top: auto; padding-top: 8px; }
+.vs-card--out .vs-card__media img { opacity: .45; filter: grayscale(1); }
+.vs-card--out .vs-card__price { opacity: .6; }
+/* skeleton */
+.vs-card--skeleton .vs-card__media, .vs-card--skeleton .vs-skel { background: linear-gradient(90deg, var(--vs-surface) 0, var(--vs-surface-2) 50%, var(--vs-surface) 100%) 0 0 / 200% 100%; animation: vs-shimmer 1.2s linear infinite; border-color: transparent; }
+.vs-skel { display: block; height: 12px; }
+@keyframes vs-shimmer { to { background-position: -200% 0; } }
+
+/* ================= Category card ================= */
+.vs-catcard { display: block; color: var(--vs-ink); }
+.vs-catcard__media { aspect-ratio: 1.56; border-radius: 4px; overflow: hidden; background: var(--vs-ink); transition: transform var(--vs-t), box-shadow var(--vs-t); }
+.vs-catcard__media img { width: 100%; height: 100%; object-fit: cover; }
+.vs-catcard:hover .vs-catcard__media { transform: translateY(-3px); box-shadow: 0 12px 24px -12px rgba(17, 18, 20, .45); }
+.vs-catcard__name { font-size: var(--vs-fs-lg); font-weight: 900; font-style: italic; font-stretch: 75%; text-transform: uppercase; line-height: 1; }
+.vs-catcard__cta { font-size: var(--vs-fs-sm); font-weight: 700; color: var(--vs-red); }
+.vs-catcard:hover { color: var(--vs-ink); }
+
+/* ================= Brand card ================= */
+.vs-brandcard { display: grid; place-items: center; height: 96px; padding: 8px 14px; border: var(--vs-bw) solid var(--vs-hairline); background: var(--vs-white); transition: border-color var(--vs-t-fast); }
+/* Logo files are mostly 200x153 canvases with built-in margins: fill the card box with object-fit: contain (ratio kept, never cropped) instead of capping the canvas at 44px. */
+.vs-brandcard img { width: 100%; height: 100%; max-height: 80px; object-fit: contain; filter: grayscale(1); opacity: .8; transition: filter var(--vs-t), opacity var(--vs-t); }
+.vs-brandcard:hover { border-color: var(--vs-ink); }
+.vs-brandcard:hover img { filter: none; opacity: 1; }
+/* NAKTO only: logo file is a 271x350 white canvas with the mark (161x48) in the middle, so it rendered ~3x smaller than other logos.
+   Scale the image (ratio kept); the card clips only the white margin. Remove when a tightly cropped logo is uploaded in PrestaShop. */
+.vs-brandcard:has(img[src$="/nakto.png"]) { overflow: hidden; }
+.vs-brandcard img[src$="/nakto.png"] { transform: scale(2.4); }
+@media (max-width: 480px) { .vs-brandcard img[src$="/nakto.png"] { transform: scale(2.1); } } /* keeps ~8px side margin in the 96px-wide cards at 360px */
+.vs-brandcard__name { font-size: var(--vs-fs-sm); font-weight: 800; letter-spacing: .04em; text-transform: uppercase; text-align: center; color: var(--vs-text-2); overflow-wrap: anywhere; }
+.vs-brandcard:hover .vs-brandcard__name { color: var(--vs-ink); }
+.vs-brandcard.is-active { border: 2px solid var(--vs-ink); }
+
+/* ================= Form controls ================= */
+.vs-field { display: flex; flex-direction: column; gap: 6px; font-size: var(--vs-fs-sm); font-weight: 600; }
+.vs-input, .vs-select { height: var(--vs-h-lg); padding: 0 14px; border: var(--vs-bw-strong) solid var(--vs-border); background: var(--vs-white); font-size: var(--vs-fs-body); border-radius: 0; outline: none; transition: border-color var(--vs-t-fast); width: 100%; }
+.vs-input:hover, .vs-select:hover { border-color: var(--vs-text-3); }
+.vs-input:focus, .vs-select:focus { border-color: var(--vs-ink); box-shadow: 0 0 0 3px var(--vs-yellow); }
+.vs-input:disabled, .vs-select:disabled { background: var(--vs-surface); color: var(--vs-text-disabled); cursor: not-allowed; }
+.vs-field.is-error .vs-input { border-color: var(--vs-red); }
+.vs-field__msg { font-size: var(--vs-fs-xs); font-weight: 500; color: var(--vs-text-2); }
+.vs-field.is-error .vs-field__msg { color: var(--vs-red); }
+.vs-select { appearance: none; padding-right: 40px; background: var(--vs-white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23111214' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 14px center; cursor: pointer; }
+.vs-check { display: flex; align-items: center; gap: 10px; min-height: 32px; font-size: var(--vs-fs-ui); cursor: pointer; }
+.vs-check input { appearance: none; width: 18px; height: 18px; margin: 0; border: var(--vs-bw-strong) solid var(--vs-text-3); background: var(--vs-white); display: grid; place-items: center; flex: none; cursor: pointer; transition: background var(--vs-t-fast), border-color var(--vs-t-fast); }
+.vs-check input:checked { background: var(--vs-ink); border-color: var(--vs-ink); }
+.vs-check input:checked::after { content: ""; width: 9px; height: 5px; border: 2px solid var(--vs-white); border-top: 0; border-right: 0; transform: rotate(-45deg) translate(1px, -1px); }
+.vs-check input:disabled { background: var(--vs-surface); border-color: var(--vs-border); cursor: not-allowed; }
+.vs-check:has(input:disabled) { color: var(--vs-text-disabled); cursor: not-allowed; }
+.vs-check__count { margin-left: auto; font-size: var(--vs-fs-xs); color: var(--vs-text-3); }
+
+/* ================= Search field ================= */
+.vs-search { position: relative; display: flex; align-items: center; flex: 1; max-width: 720px; height: var(--vs-h-lg); padding: 0 16px; gap: 10px; background: var(--vs-surface); border: var(--vs-bw-strong) solid transparent; color: var(--vs-text-2); font-size: var(--vs-fs-body); text-align: left; transition: border-color var(--vs-t-fast), background var(--vs-t-fast); }
+.vs-search:hover { border-color: var(--vs-ink); background: var(--vs-white); }
+.vs-search svg { width: 20px; height: 20px; flex: none; color: var(--vs-ink); }
+.vs-search__kbd { margin-left: auto; font-family: var(--vs-font-mono); font-size: 11px; padding: 2px 6px; border: 1px solid var(--vs-border); color: var(--vs-text-3); }
+
+/* ================= Chips ================= */
+.vs-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.vs-chip { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border: var(--vs-bw-strong) solid var(--vs-border); background: var(--vs-white); font-size: var(--vs-fs-sm); font-weight: 700; color: var(--vs-ink); transition: border-color var(--vs-t-fast), background var(--vs-t-fast); }
+.vs-chip:hover { border-color: var(--vs-ink); color: var(--vs-ink); }
+.vs-chip[aria-current="true"], .vs-chip.is-active { background: var(--vs-ink); border-color: var(--vs-ink); color: var(--vs-white); }
+.vs-chip__count { font-weight: 500; color: var(--vs-text-3); }
+.vs-chip.is-active .vs-chip__count, .vs-chip[aria-current="true"] .vs-chip__count { color: var(--vs-dark-text-2); }
+.vs-chip--removable::after { content: "×"; font-size: 16px; line-height: 1; }
+
+/* ================= Breadcrumb ================= */
+.vs-breadcrumb { display: flex; flex-wrap: wrap; gap: 8px; font-size: var(--vs-fs-sm); color: var(--vs-text-2); list-style: none; margin: 0; padding: 0; }
+.vs-breadcrumb li + li::before { content: "/"; margin-right: 8px; color: var(--vs-text-3); }
+.vs-breadcrumb a { color: var(--vs-text-2); }
+.vs-breadcrumb a:hover { color: var(--vs-red); }
+.vs-breadcrumb [aria-current="page"] { color: var(--vs-ink); font-weight: 600; }
+
+/* ================= Pagination ================= */
+.vs-pagination { display: flex; align-items: center; justify-content: center; gap: 4px; flex-wrap: wrap; }
+.vs-pagination__item { min-width: 40px; height: 40px; padding: 0 8px; display: inline-grid; place-items: center; border: 0; background: transparent; font-size: var(--vs-fs-ui); font-weight: 700; color: var(--vs-ink); }
+.vs-pagination__item:hover { outline: 1.5px solid var(--vs-ink); outline-offset: -1.5px; color: var(--vs-ink); }
+.vs-pagination__item[aria-current="page"] { background: var(--vs-ink); color: var(--vs-white); }
+.vs-pagination__item:disabled { color: var(--vs-text-disabled); outline: 0; cursor: not-allowed; }
+.vs-pagination__gap { min-width: 32px; text-align: center; color: var(--vs-text-3); font-weight: 700; }
+
+/* ================= Tabs ================= */
+.vs-tabs__list { display: flex; gap: 0; border-bottom: var(--vs-bw) solid var(--vs-border); overflow-x: auto; scrollbar-width: none; }
+.vs-tabs__tab { flex: none; height: 56px; padding: 0 22px; border: 0; background: transparent; font-size: var(--vs-fs-ui); font-weight: 800; letter-spacing: .03em; text-transform: uppercase; color: var(--vs-text-2); box-shadow: inset 0 -3px 0 transparent; transition: color var(--vs-t-fast), box-shadow var(--vs-t-fast); }
+.vs-tabs__tab:hover { color: var(--vs-ink); }
+.vs-tabs__tab[aria-selected="true"] { color: var(--vs-ink); box-shadow: inset 0 -3px 0 var(--vs-red); }
+.vs-tabs__tab:disabled { color: var(--vs-text-disabled); cursor: not-allowed; }
+.vs-tabs__panel { padding: 32px 0; }
+
+/* ================= Accordion ================= */
+.vs-acc { border-top: var(--vs-bw) solid var(--vs-border); }
+.vs-acc__item { border-bottom: var(--vs-bw) solid var(--vs-border); }
+.vs-acc__head { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; padding: 12px 0; border: 0; background: none; font-size: var(--vs-fs-ui); font-weight: 800; text-align: left; }
+.vs-acc__head::after { content: "+"; font-size: 22px; font-weight: 400; transition: transform var(--vs-t); }
+.vs-acc__head[aria-expanded="true"]::after { transform: rotate(45deg); }
+.vs-acc__body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--vs-t) var(--vs-ease); }
+.vs-acc__head[aria-expanded="true"] + .vs-acc__body { grid-template-rows: 1fr; }
+.vs-acc__inner { overflow: hidden; }
+.vs-acc__inner > * { padding-bottom: 16px; }
+
+/* ================= Spec table ================= */
+.vs-spec { width: 100%; border-collapse: collapse; font-size: var(--vs-fs-ui); }
+.vs-spec th, .vs-spec td { padding: 14px 16px; text-align: left; vertical-align: top; border-bottom: var(--vs-bw) solid var(--vs-hairline); }
+.vs-spec th, .vs-spec td { overflow-wrap: anywhere; }
+.vs-spec th { width: 40%; font-weight: 500; color: var(--vs-text-2); }
+.vs-spec td { font-weight: 700; }
+.vs-spec tr:nth-child(odd) { background: var(--vs-surface-2); }
+.vs-spec--compare th { width: auto; }
+.vs-spec--compare thead th { background: var(--vs-white); color: var(--vs-ink); font-weight: 800; }
+
+/* ================= Quantity selector (UI only) ================= */
+.vs-qty { display: inline-flex; align-items: center; height: var(--vs-h-lg); border: var(--vs-bw-strong) solid var(--vs-border); }
+.vs-qty button { width: 44px; height: 100%; border: 0; background: transparent; font-size: 18px; }
+.vs-qty button:hover { background: var(--vs-surface); }
+.vs-qty button:disabled { color: var(--vs-text-disabled); background: transparent; cursor: not-allowed; }
+.vs-qty input { width: 48px; height: 100%; border: 0; text-align: center; font-weight: 700; -moz-appearance: textfield; }
+
+/* ================= Rating ================= */
+.vs-rating { display: inline-flex; align-items: center; gap: 2px; color: var(--vs-ink); font-size: var(--vs-fs-sm); }
+.vs-rating__star { width: 14px; height: 14px; background: var(--vs-border); clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+.vs-rating__star.is-on { background: var(--vs-ink); }
+
+/* ================= Alert ================= */
+.vs-alert { display: flex; gap: 12px; padding: 14px 16px; font-size: var(--vs-fs-ui); border: var(--vs-bw) solid var(--vs-border); background: var(--vs-surface-2); }
+.vs-alert--success { background: var(--vs-success-bg); border-color: transparent; color: #1F6B3D; }
+.vs-alert--warning { background: var(--vs-warning-bg); border-color: transparent; color: #7A5A00; }
+.vs-alert--error { background: #FDECEC; border-color: transparent; color: var(--vs-red-active); }
+
+/* ================= Toast ================= */
+.vs-toast-region { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: var(--vs-z-toast); display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
+.vs-toast { display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--vs-ink); color: var(--vs-white); font-size: var(--vs-fs-ui); font-weight: 600; box-shadow: var(--vs-shadow-pop); animation: vs-toast-in var(--vs-t) var(--vs-ease); pointer-events: auto; }
+.vs-toast::before { content: ""; width: 8px; height: 8px; background: var(--vs-yellow); flex: none; }
+.vs-toast--error::before { background: var(--vs-red); }
+.vs-toast.is-leaving { opacity: 0; transform: translateY(8px); transition: opacity var(--vs-t), transform var(--vs-t); }
+@keyframes vs-toast-in { from { opacity: 0; transform: translateY(12px); } }
+
+/* ================= Modal & Drawer ================= */
+.vs-overlay { position: fixed; inset: 0; background: rgba(17, 18, 20, .55); z-index: var(--vs-z-modal); display: flex; align-items: center; justify-content: center; padding: 16px; opacity: 0; transition: opacity var(--vs-t); }
+.vs-overlay.is-open { opacity: 1; }
+.vs-modal { width: min(560px, 100%); max-height: calc(100vh - 32px); overflow: auto; background: var(--vs-white); padding: 32px; position: relative; transform: translateY(12px); transition: transform var(--vs-t) var(--vs-ease); }
+.vs-modal--wide { width: min(1000px, 100%); }
+.vs-overlay.is-open .vs-modal { transform: none; }
+.vs-modal__close { position: absolute; top: 12px; right: 12px; }
+.vs-drawer { position: fixed; top: 0; bottom: 0; right: 0; width: min(440px, 100%); background: var(--vs-white); z-index: var(--vs-z-drawer); transform: translateX(100%); transition: transform var(--vs-t) var(--vs-ease); display: flex; flex-direction: column; }
+.vs-drawer.is-open { transform: none; }
+.vs-sheet { position: fixed; left: 0; right: 0; bottom: 0; max-height: 88vh; background: var(--vs-white); z-index: var(--vs-z-drawer); transform: translateY(100%); transition: transform var(--vs-t) var(--vs-ease); display: flex; flex-direction: column; }
+.vs-sheet.is-open { transform: none; }
+.vs-sheet__head { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: var(--vs-bw) solid var(--vs-border); font-weight: 800; }
+.vs-sheet__body { overflow: auto; padding: 0 16px; flex: 1; }
+.vs-sheet__foot { display: flex; gap: 10px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); border-top: var(--vs-bw) solid var(--vs-border); }
+.vs-scrim { position: fixed; inset: 0; background: rgba(17, 18, 20, .45); z-index: calc(var(--vs-z-drawer) - 1); opacity: 0; pointer-events: none; transition: opacity var(--vs-t); }
+.vs-scrim.is-open { opacity: 1; pointer-events: auto; }
+
+/* ================= Empty state ================= */
+.vs-empty { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 48px 0; }
+.vs-empty__title { font-size: var(--vs-fs-h3); font-weight: 800; }
+.vs-empty__text { color: var(--vs-text-2); max-width: 46ch; }

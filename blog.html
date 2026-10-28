@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bloq — VOLKS SPORT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=20261022">
+<link rel="stylesheet" href="css/base.css?v=20261022">
+<link rel="stylesheet" href="css/components.css?v=20261022">
+<link rel="stylesheet" href="css/layout.css?v=20261022">
+<link rel="stylesheet" href="css/pages.css?v=20261022">
+</head>
+<body data-page="blog">
+<div data-include="partials/header.html"></div>
+<!-- PrestaShop: blog module listing. Posts come from data/blog.json -->
+<main class="vs-container">
+  <div class="vs-pagehead"><ol class="vs-breadcrumb"><li><a href="index.html">Ana səhifə</a></li><li><span aria-current="page">Bloq</span></li></ol><h1 class="vs-h1">Bloq</h1></div>
+  <nav class="vs-chips" data-blog-cats aria-label="Bloq kateqoriyaları"></nav>
+  <div data-blog-featured></div>
+  <div class="vs-blog-grid" data-blog-grid></div>
+  <div class="vs-empty" data-blog-empty hidden>
+    <span class="vs-empty__title">Məqalələr hələ əlavə olunmayıb</span>
+    <span class="vs-empty__text">Yeni məqalələr burada görünəcək.</span>
+    <a class="vs-btn vs-btn--outline" href="category.html">Kataloqa keç</a>
+  </div>
+</main>
+<div data-include="partials/footer.html"></div>
+<script src="js/i18n.js?v=20261022"></script>
+<script src="js/app.js?v=20261022"></script>
+<script src="js/pages.js?v=20261022"></script>
+<script src="js/pages-info.js?v=20261022"></script>
+</body>
+</html>

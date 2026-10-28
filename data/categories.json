@@ -1,0 +1,784 @@
+[
+  {
+    "id": "fitness",
+    "name": "Fitness avadanlıqları və aksesuarları",
+    "children": [
+      {
+        "id": "fitness-kardio-trenajorlar",
+        "name": "Kardio trenajorlar",
+        "children": [
+          {
+            "id": "qacis",
+            "name": "Qaçış qurğuları"
+          },
+          {
+            "id": "ellip",
+            "name": "Elliptik trenajorlar"
+          },
+          {
+            "id": "velo",
+            "name": "Velotrenajorlar"
+          },
+          {
+            "id": "avar",
+            "name": "Avarçəkmə trenajorları"
+          },
+          {
+            "id": "step",
+            "name": "Stepperlər"
+          }
+        ]
+      },
+      {
+        "id": "fitness-guc-trenajoru",
+        "name": "Güc trenajoru",
+        "children": [
+          {
+            "id": "s7",
+            "name": "S7"
+          },
+          {
+            "id": "s6",
+            "name": "S6"
+          },
+          {
+            "id": "s5",
+            "name": "S5"
+          },
+          {
+            "id": "sfree",
+            "name": "Sərbəst çəki"
+          },
+          {
+            "id": "ev",
+            "name": "Ev üçün"
+          },
+          {
+            "id": "kross",
+            "name": "Krossoverlər"
+          },
+          {
+            "id": "smit",
+            "name": "Smit və dirəklər"
+          },
+          {
+            "id": "turnik",
+            "name": "Turniklər və paralel qollar"
+          },
+          {
+            "id": "direk",
+            "name": "Dirəklər"
+          },
+          {
+            "id": "oturacaq",
+            "name": "Oturacaqlar"
+          },
+          {
+            "id": "ref",
+            "name": "Rəflər",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "fitness-aerobika-ve-yoga",
+        "name": "Aerobika və yoga",
+        "children": [
+          {
+            "id": "a-top",
+            "name": "Aerobika topu"
+          },
+          {
+            "id": "a-mat",
+            "name": "Aerobika matı"
+          },
+          {
+            "id": "a-2",
+            "name": "Tibbi toplar"
+          },
+          {
+            "id": "a-3",
+            "name": "Müqavimət rezinləri"
+          },
+          {
+            "id": "a-4",
+            "name": "Atlanma ipləri"
+          },
+          {
+            "id": "a-5",
+            "name": "Silindirlər"
+          },
+          {
+            "id": "a-6",
+            "name": "Yoga bloklar"
+          },
+          {
+            "id": "a-7",
+            "name": "Halqalar"
+          },
+          {
+            "id": "a-8",
+            "name": "Balans alətləri"
+          },
+          {
+            "id": "a-9",
+            "name": "Sürüşmə diskləri"
+          },
+          {
+            "id": "a-10",
+            "name": "TRX"
+          },
+          {
+            "id": "a-step",
+            "name": "Step platformaları",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "fitness-agirliqlar",
+        "name": "Ağırlıqlar",
+        "children": [
+          {
+            "id": "w-qrif",
+            "name": "Qriflər"
+          },
+          {
+            "id": "w-qantel",
+            "name": "Qantellər"
+          },
+          {
+            "id": "w-el",
+            "name": "Əl və ayaq üçün ağırlıqlar"
+          },
+          {
+            "id": "w-kb",
+            "name": "Çəki daşları"
+          },
+          {
+            "id": "w-jilet",
+            "name": "Ağırlıq jiletləri"
+          },
+          {
+            "id": "w-bolqar",
+            "name": "Bolqar kisələri"
+          },
+          {
+            "id": "w-das",
+            "name": "Qriflər üçün daşlar"
+          },
+          {
+            "id": "w-pad",
+            "name": "Qriflər üçün kürək qoruyucu"
+          }
+        ]
+      },
+      {
+        "id": "fitness-ortukler",
+        "name": "Örtüklər",
+        "children": [
+          {
+            "id": "o-rezin",
+            "name": "Rezin örtük"
+          },
+          {
+            "id": "o-tatami",
+            "name": "Tatami"
+          }
+        ]
+      },
+      {
+        "id": "f-pres",
+        "name": "Pres üçün təkər",
+        "children": []
+      },
+      {
+        "id": "f-jim",
+        "name": "Jim üçün dəstək",
+        "children": []
+      },
+      {
+        "id": "f-esp",
+        "name": "Espanderlər",
+        "children": []
+      },
+      {
+        "id": "f-mini",
+        "name": "Mini velotrenajorlar",
+        "children": []
+      },
+      {
+        "id": "f-dart",
+        "name": "Dartınma trenajorları",
+        "children": []
+      },
+      {
+        "id": "f-funksional",
+        "name": "Funksional məşq",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "idman",
+    "name": "İdman",
+    "children": [
+      {
+        "id": "idman-futbol",
+        "name": "Futbol",
+        "children": [
+          {
+            "id": "fb-top",
+            "name": "Toplar"
+          },
+          {
+            "id": "fb-fit",
+            "name": "Fitlər"
+          },
+          {
+            "id": "fb-setka",
+            "name": "Setkalar"
+          },
+          {
+            "id": "fb-ayaq",
+            "name": "Ayaq qoruyucuları"
+          },
+          {
+            "id": "fb-qapici",
+            "name": "Qapıçı Əlcəkləri"
+          },
+          {
+            "id": "fb-mane",
+            "name": "Maneələr"
+          },
+          {
+            "id": "fb-butsi",
+            "name": "Butsi"
+          },
+          {
+            "id": "fb-forma",
+            "name": "Futbol formaları"
+          },
+          {
+            "id": "fb-qapi",
+            "name": "Futbol qapıları"
+          }
+        ]
+      },
+      {
+        "id": "idman-basketbol",
+        "name": "Basketbol",
+        "children": [
+          {
+            "id": "b-top",
+            "name": "Toplar"
+          },
+          {
+            "id": "b-sit",
+            "name": "Şitlər"
+          },
+          {
+            "id": "b-sebet",
+            "name": "Səbətlər"
+          },
+          {
+            "id": "b-direk",
+            "name": "Yerdən qoyulan dirəklər"
+          },
+          {
+            "id": "b-setka",
+            "name": "Setkalar"
+          }
+        ]
+      },
+      {
+        "id": "idman-tennis",
+        "name": "Tennis",
+        "children": [
+          {
+            "id": "t-raket",
+            "name": "Raketka"
+          },
+          {
+            "id": "t-canta",
+            "name": "Çanta"
+          },
+          {
+            "id": "t-top",
+            "name": "Top"
+          },
+          {
+            "id": "t-aks",
+            "name": "Aksesuarlar"
+          }
+        ]
+      },
+      {
+        "id": "idman-padel",
+        "name": "Padel",
+        "children": [
+          {
+            "id": "pd-raket",
+            "name": "Raketka"
+          },
+          {
+            "id": "pd-top",
+            "name": "Top"
+          },
+          {
+            "id": "pd-canta",
+            "name": "Çanta"
+          }
+        ]
+      },
+      {
+        "id": "idman-uzguculuk",
+        "name": "Üzgüçülük",
+        "children": [
+          {
+            "id": "u-papaq",
+            "name": "Papaqlar"
+          },
+          {
+            "id": "u-eynek",
+            "name": "Eynəklər və antifog"
+          },
+          {
+            "id": "u-burun",
+            "name": "Buruncuqlar və qulaqcıqlar"
+          },
+          {
+            "id": "u-qol",
+            "name": "Qolluqlar"
+          },
+          {
+            "id": "u-platf",
+            "name": "Köməkçi platformalar"
+          },
+          {
+            "id": "u-geyim",
+            "name": "Geyimlər"
+          },
+          {
+            "id": "u-uzgec",
+            "name": "Üzgəclər"
+          }
+        ]
+      },
+      {
+        "id": "idman-voleybol",
+        "name": "Voleybol",
+        "children": []
+      },
+      {
+        "id": "idman-badminton",
+        "name": "Badminton",
+        "children": [
+          {
+            "id": "bd-raket",
+            "name": "Raketka"
+          },
+          {
+            "id": "bd-top",
+            "name": "Top"
+          }
+        ]
+      },
+      {
+        "id": "idman-stolustu-tennis",
+        "name": "Stolüstü tennis",
+        "children": [
+          {
+            "id": "tt-masa",
+            "name": "Masalar"
+          },
+          {
+            "id": "tt-top",
+            "name": "Top"
+          },
+          {
+            "id": "tt-canta",
+            "name": "Çanta"
+          },
+          {
+            "id": "tt-setka",
+            "name": "Setka və tutacaqları"
+          },
+          {
+            "id": "tt-raket",
+            "name": "Raketkalar"
+          }
+        ]
+      },
+      {
+        "id": "idman-bilyard",
+        "name": "Bilyard",
+        "children": [
+          {
+            "id": "bl-masa",
+            "name": "Masalar"
+          },
+          {
+            "id": "bl-aks",
+            "name": "Aksesuarlar"
+          }
+        ]
+      },
+      {
+        "id": "idman-boks",
+        "name": "Boks",
+        "children": [
+          {
+            "id": "bx-elcek",
+            "name": "Əlcək",
+            "children": []
+          },
+          {
+            "id": "bx-bint",
+            "name": "Bint",
+            "children": []
+          },
+          {
+            "id": "bx-kapa",
+            "name": "Kapa",
+            "children": []
+          },
+          {
+            "id": "bx-kaska",
+            "name": "Kaska",
+            "children": []
+          },
+          {
+            "id": "bx-kise",
+            "name": "Boks kisəsi",
+            "children": []
+          },
+          {
+            "id": "bx-muqevva",
+            "name": "Müqəvvalar",
+            "children": []
+          },
+          {
+            "id": "bx-lapa",
+            "name": "Lapalar",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "idman-mma",
+        "name": "MMA",
+        "children": []
+      },
+      {
+        "id": "idman-cudo",
+        "name": "Cüdo",
+        "children": [
+          {
+            "id": "cd-kemer",
+            "name": "Kəmərlər"
+          }
+        ]
+      },
+      {
+        "id": "idman-krossfit",
+        "name": "Krossfit",
+        "children": [
+          {
+            "id": "x-teker",
+            "name": "Təkərlər"
+          },
+          {
+            "id": "x-cekic",
+            "name": "Çəkiclər"
+          },
+          {
+            "id": "x-kendir",
+            "name": "Kəndirlər"
+          },
+          {
+            "id": "x-sled",
+            "name": "Super Sled"
+          },
+          {
+            "id": "x-yesik",
+            "name": "Yeşiklər"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "geyim",
+    "name": "Geyim",
+    "children": [
+      {
+        "id": "geyim-qadin",
+        "name": "Qadın",
+        "children": [
+          {
+            "id": "gq-dest",
+            "name": "Dəst kostyum"
+          },
+          {
+            "id": "gq-sort",
+            "name": "Şortik"
+          },
+          {
+            "id": "gq-top",
+            "name": "Top"
+          },
+          {
+            "id": "gq-tshirt",
+            "name": "T-Shirt"
+          },
+          {
+            "id": "gq-salvar",
+            "name": "Şalvar"
+          },
+          {
+            "id": "gq-ayaq",
+            "name": "Ayaqqabı"
+          },
+          {
+            "id": "gq-papaq",
+            "name": "Papaq"
+          },
+          {
+            "id": "gq-losin",
+            "name": "Losin"
+          }
+        ]
+      },
+      {
+        "id": "geyim-kisi",
+        "name": "Kişi",
+        "children": [
+          {
+            "id": "gk-dest",
+            "name": "Dəst kostyum"
+          },
+          {
+            "id": "gk-sort",
+            "name": "Şortik"
+          },
+          {
+            "id": "gk-papaq",
+            "name": "Papaq"
+          },
+          {
+            "id": "gk-tshirt",
+            "name": "T-Shirt"
+          },
+          {
+            "id": "gk-salvar",
+            "name": "Şalvar"
+          },
+          {
+            "id": "gk-ayaq",
+            "name": "Ayaqqabı"
+          },
+          {
+            "id": "gk-losin",
+            "name": "Losin"
+          }
+        ]
+      },
+      {
+        "id": "geyim-usaq",
+        "name": "Uşaq",
+        "children": [
+          {
+            "id": "gu-dest",
+            "name": "Dəst kostyum"
+          },
+          {
+            "id": "gu-tshirt",
+            "name": "T-Shirt"
+          },
+          {
+            "id": "gu-ayaq",
+            "name": "Ayaqqabı"
+          },
+          {
+            "id": "gu-salvar",
+            "name": "Şalvar"
+          }
+        ]
+      },
+      {
+        "id": "geyim-aks",
+        "name": "Aksesuarlar",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "pilates",
+    "name": "Pilates",
+    "children": []
+  },
+  {
+    "id": "mas",
+    "name": "Masajorlar",
+    "children": [
+      {
+        "id": "mas-masajorlar",
+        "name": "Masajorlar",
+        "children": [
+          {
+            "id": "m-ayaq",
+            "name": "Ayaq Masajorları"
+          },
+          {
+            "id": "m-platf",
+            "name": "Platformalar"
+          },
+          {
+            "id": "m-el",
+            "name": "Əldə istifadə üçün"
+          },
+          {
+            "id": "m-kreslo",
+            "name": "Masaj kresloları"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ey",
+    "name": "Əyləncə",
+    "children": [
+      {
+        "id": "ey-eylence",
+        "name": "Əyləncə",
+        "children": [
+          {
+            "id": "e-somakat",
+            "name": "Somakatlar"
+          },
+          {
+            "id": "e-rolik",
+            "name": "Roliklər"
+          },
+          {
+            "id": "e-skeyt",
+            "name": "Skeytlər"
+          },
+          {
+            "id": "e-velo",
+            "name": "Velosipedlər"
+          },
+          {
+            "id": "e-kaska",
+            "name": "Kaska və qoruyucular"
+          },
+          {
+            "id": "e-futmasa",
+            "name": "Futbol masaları"
+          },
+          {
+            "id": "e-xokkey",
+            "name": "Xokkey masaları"
+          },
+          {
+            "id": "e-sahmat",
+            "name": "Şahmat"
+          },
+          {
+            "id": "e-darts",
+            "name": "Darts"
+          },
+          {
+            "id": "e-batut",
+            "name": "Batutlar",
+            "children": []
+          },
+          {
+            "id": "e-cadir",
+            "name": "Çadırlar",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dig",
+    "name": "Digər",
+    "children": [
+      {
+        "id": "dig-diger",
+        "name": "Digər",
+        "children": [
+          {
+            "id": "d-elcek",
+            "name": "Fitness əlcəkləri"
+          },
+          {
+            "id": "d-suqabi",
+            "name": "Su qabı və şeykerlər"
+          },
+          {
+            "id": "d-dizlik",
+            "name": "Dizliklər"
+          },
+          {
+            "id": "d-bilek",
+            "name": "Biləkliklər"
+          },
+          {
+            "id": "d-terleme",
+            "name": "Tərləmə kəmərləri və kostyumları"
+          },
+          {
+            "id": "d-terezi",
+            "name": "Tərəzilər"
+          },
+          {
+            "id": "d-kubok",
+            "name": "Kubok və medallar"
+          },
+          {
+            "id": "d-rukayatka",
+            "name": "Rukayatka"
+          },
+          {
+            "id": "d-kemer",
+            "name": "Ağırlıq qaldırma kəməri"
+          },
+          {
+            "id": "d-inversiya",
+            "name": "İnversiya stolu"
+          },
+          {
+            "id": "d-canta",
+            "name": "Çantalar"
+          },
+          {
+            "id": "d-spaqat",
+            "name": "Şpaqat Aparatı"
+          },
+          {
+            "id": "d-qoruyucu",
+            "name": "Qoruyucular və dəstəklər",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sale",
+    "name": "Endirimli məhsullar",
+    "children": [],
+    "link": "sale"
+  },
+  {
+    "id": "blog",
+    "name": "Bloq",
+    "children": [],
+    "link": "blog"
+  }
+]

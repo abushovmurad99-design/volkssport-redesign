@@ -1,0 +1,389 @@
+{
+ "source": "uploads/volkssport_fitnes_aerobika_agirliq_ortuk_ezele.csv",
+ "date": "2026-10-22",
+ "rule": "id_product AND reference must both match; only fields with status VAR written; when the CSV has no feature list, \"Name: value\" lines of the full text are moved to the spec table and other lines kept as description (opts.specsFromText); lines ending with \":\" become subheadings",
+ "backup": "theme/backup/products.before-fitnes-csv.json",
+ "rows": 468,
+ "updated_total": 429,
+ "applied_this_run": 424,
+ "already_imported_identical": [
+  "129 MC10",
+  "132 MC01",
+  "134 MC03",
+  "135 MC08",
+  "137 LN-2382"
+ ],
+ "fields": {
+  "short": 228,
+  "full": 111,
+  "features": 93,
+  "featuresFromText": 281
+ },
+ "skipped": [
+  {
+   "id": "467",
+   "kod": "LP8195-20",
+   "reason": "id not in prototype; code exists as id 2451"
+  },
+  {
+   "id": "617",
+   "kod": "B-920",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "1870",
+   "kod": "VG-83B",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "1872",
+   "kod": "VG-73B",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "1947",
+   "kod": "MC20",
+   "reason": "id not in prototype; code exists as id 3111"
+  },
+  {
+   "id": "2111",
+   "kod": "LN-2474",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2324",
+   "kod": "LP8184",
+   "reason": "id not in prototype; code exists as id 3806"
+  },
+  {
+   "id": "2338",
+   "kod": "LP8112-8",
+   "reason": "id not in prototype; code exists as id 2341"
+  },
+  {
+   "id": "2420",
+   "kod": "LS3218",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2422",
+   "kod": "LS3211",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2424",
+   "kod": "LS3662",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2427",
+   "kod": "LS3214",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2432",
+   "kod": "LS3166",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2439",
+   "kod": "LP8062",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2464",
+   "kod": "LS3205",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2465",
+   "kod": "LP8403",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2467",
+   "kod": "LS3384",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2468",
+   "kod": "LS3162",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2484",
+   "kod": "LP8413-M",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2497",
+   "kod": "LS3592",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2498",
+   "kod": "LS3170",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2537",
+   "kod": "LS3243",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3210",
+   "kod": "H-7-5",
+   "reason": "id not in prototype; code exists as id 3554"
+  },
+  {
+   "id": "3824",
+   "kod": "LS3049",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3832",
+   "kod": "LS3128",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3834",
+   "kod": "LS3114",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3835",
+   "kod": "LS3122",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3857",
+   "kod": "LB7123",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3859",
+   "kod": "LB7041",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3863",
+   "kod": "LB7060",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3864",
+   "kod": "LB7060",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3865",
+   "kod": "LB7060",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3884",
+   "kod": "LS3360",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3895",
+   "kod": "LB7001",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3896",
+   "kod": "LB7051/65",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3897",
+   "kod": "LB7054/65/BK",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3914",
+   "kod": "LN-1401-5",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3917",
+   "kod": "LN-1401-15",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3918",
+   "kod": "LN-1401-20",
+   "reason": "no content in CSV"
+  }
+ ],
+ "review": {
+  "duplicate_code_on_old_site": [
+   {
+    "id": "467",
+    "kod": "LP8195-20",
+    "in_prototype": false,
+    "applied": false,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "2249",
+    "kod": "LN-1421",
+    "in_prototype": true,
+    "applied": true,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "2250",
+    "kod": "LN-1421",
+    "in_prototype": true,
+    "applied": true,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "2324",
+    "kod": "LP8184",
+    "in_prototype": false,
+    "applied": false,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "2338",
+    "kod": "LP8112-8",
+    "in_prototype": false,
+    "applied": false,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "2341",
+    "kod": "LP8112-8",
+    "in_prototype": true,
+    "applied": true,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "2364",
+    "kod": "LS3049",
+    "in_prototype": true,
+    "applied": true,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "2451",
+    "kod": "LP8195-20",
+    "in_prototype": true,
+    "applied": true,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "2527",
+    "kod": "LS3003",
+    "in_prototype": true,
+    "applied": true,
+    "note": "Bu kod köhnə saytda 3 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "2528",
+    "kod": "LS3003",
+    "in_prototype": true,
+    "applied": true,
+    "note": "Bu kod köhnə saytda 3 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "2529",
+    "kod": "LS3003",
+    "in_prototype": true,
+    "applied": true,
+    "note": "Bu kod köhnə saytda 3 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "2532",
+    "kod": "LS3225",
+    "in_prototype": true,
+    "applied": true,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "2533",
+    "kod": "LS3225",
+    "in_prototype": true,
+    "applied": true,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "2554",
+    "kod": "LP8405",
+    "in_prototype": true,
+    "applied": true,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "2555",
+    "kod": "LP8405",
+    "in_prototype": true,
+    "applied": true,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "3210",
+    "kod": "H-7-5",
+    "in_prototype": false,
+    "applied": false,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "3554",
+    "kod": "H-7-5",
+    "in_prototype": true,
+    "applied": true,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "3806",
+    "kod": "LP8184",
+    "in_prototype": true,
+    "applied": true,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "3824",
+    "kod": "LS3049",
+    "in_prototype": true,
+    "applied": false,
+    "note": "Bu kod köhnə saytda 2 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "3863",
+    "kod": "LB7060",
+    "in_prototype": true,
+    "applied": false,
+    "note": "Bu kod köhnə saytda 3 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "3864",
+    "kod": "LB7060",
+    "in_prototype": true,
+    "applied": false,
+    "note": "Bu kod köhnə saytda 3 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   },
+   {
+    "id": "3865",
+    "kod": "LB7060",
+    "in_prototype": true,
+    "applied": false,
+    "note": "Bu kod köhnə saytda 3 məhsulda təkrarlanır – qeyri-müəyyən uyğunluq"
+   }
+  ],
+  "csv_codes_on_several_rows": [
+   "lp8195-20: 467,2451",
+   "ln-1421: 2249,2250",
+   "lp8184: 2324,3806",
+   "lp8112-8: 2338,2341",
+   "ls3049: 2364,3824",
+   "ls3003: 2527,2528,2529",
+   "ls3225: 2532,2533",
+   "lp8405: 2554,2555",
+   "h-7-5: 3210,3554",
+   "lb7060: 3863,3864,3865"
+  ]
+ }
+}

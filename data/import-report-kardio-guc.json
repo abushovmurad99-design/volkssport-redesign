@@ -1,0 +1,152 @@
+{
+ "source": "uploads/volkssport_kardio_guc_trenajorlari.csv",
+ "date": "2026-10-22",
+ "rule": "id_product AND reference must both match; only fields with status VAR written",
+ "rows": 381,
+ "applied": 357,
+ "fields": {
+  "short": 221,
+  "full": 328,
+  "features": 166
+ },
+ "skipped": [
+  {
+   "id": "1505",
+   "kod": "LN-2091",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "3119",
+   "kod": "VGPH-33",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2844",
+   "kod": "VG-42",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2828",
+   "kod": "VG-72",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2825",
+   "kod": "XH-008",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2772",
+   "kod": "1713",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2767",
+   "kod": "LN-1705-6",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2766",
+   "kod": "LN-1705-5",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2089",
+   "kod": "XH-007",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2085",
+   "kod": "XH-002",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2084",
+   "kod": "GRCH-322",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2082",
+   "kod": "XH-003",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "2077",
+   "kod": "XH-025B",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "1980",
+   "kod": "Z-6040",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "1876",
+   "kod": "VG-0881",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "1873",
+   "kod": "VG-0882",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "1767",
+   "kod": "VG-71",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "1629",
+   "kod": "C-1200",
+   "reason": "not in prototype"
+  },
+  {
+   "id": "1628",
+   "kod": "C-0607",
+   "reason": "not in prototype"
+  },
+  {
+   "id": "437",
+   "kod": "H-16-5",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "426",
+   "kod": "13010105",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "419",
+   "kod": "13010318-10",
+   "reason": "no content in CSV"
+  },
+  {
+   "id": "349",
+   "kod": "XH-031",
+   "reason": "id not in prototype; code exists as id 1766"
+  },
+  {
+   "id": "1957",
+   "kod": "DY-3020",
+   "reason": "no content in CSV"
+  }
+ ],
+ "review": {
+  "duplicate_code_on_old_site_applied_by_id": [
+   "3307 VG-13HG",
+   "1950 XH-021",
+   "1766 XH-031",
+   "343 XH-021",
+   "336 S7-014",
+   "335 S7-014",
+   "1773 VG-13HG"
+  ],
+  "features_only_in_text": [
+   "3429 BT-70R",
+   "3425 B-1035"
+  ],
+  "short_equals_full": [
+   "1816 VG-34B"
+  ]
+ }
+}

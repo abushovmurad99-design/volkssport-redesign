@@ -1,0 +1,77 @@
+/* Volkssport design tokens — single source of truth.
+   Values extracted from the approved prototype (Volkssport Front Office.dc.html). */
+:root {
+  /* Color — brand */
+  --vs-ink: #111214;
+  --vs-white: #FFFFFF;
+  --vs-red: #DD0000;
+  --vs-red-hover: #B80000;
+  --vs-red-active: #A00000;
+  --vs-yellow: #FFCE00;
+
+  /* Color — neutrals */
+  --vs-text: var(--vs-ink);
+  --vs-text-2: #5F6166;
+  --vs-text-3: #8A8C90;
+  --vs-text-disabled: #A9AAAE;
+  --vs-border: #E2E2DF;
+  --vs-hairline: #ECECE9;
+  --vs-surface: #F3F3F1;
+  --vs-surface-2: #F6F6F4;
+  --vs-dark-1: #1B1C1F;
+  --vs-dark-2: #3A3B40;
+  --vs-dark-text-2: #C9CACD;
+
+  /* Color — semantic */
+  --vs-primary: var(--vs-red);
+  --vs-secondary: var(--vs-ink);
+  --vs-success: #1F8A4C;
+  --vs-success-bg: #EAF5EE;
+  --vs-warning: #B98500;
+  --vs-warning-bg: #FFF4D6;
+  --vs-error: var(--vs-red);
+  --vs-sale: var(--vs-red);
+  --vs-new: var(--vs-ink);
+  --vs-focus: var(--vs-yellow);
+
+  /* Typography */
+  --vs-font: 'Archivo', Helvetica, Arial, sans-serif;
+  --vs-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --vs-fs-display: clamp(56px, 9vw, 148px);
+  --vs-fs-h1: clamp(40px, 5vw, 80px);
+  --vs-fs-h2: clamp(28px, 3vw, 44px);
+  --vs-fs-h3: clamp(20px, 1.8vw, 26px);
+  --vs-fs-lg: 17px;
+  --vs-fs-body: 15px;
+  --vs-fs-ui: 14px;
+  --vs-fs-sm: 13px;
+  --vs-fs-xs: 12px;
+  --vs-fs-2xs: 11px;
+  --vs-fs-price: 20px;
+  --vs-fs-price-lg: 44px;
+  --vs-lh-tight: .9;
+  --vs-lh: 1.5;
+  --vs-track-caps: .06em;
+
+  /* Space (4px base) */
+  --vs-s1: 4px; --vs-s2: 8px; --vs-s3: 12px; --vs-s4: 16px; --vs-s5: 20px;
+  --vs-s6: 24px; --vs-s8: 32px; --vs-s10: 40px; --vs-s12: 48px; --vs-s16: 64px; --vs-s20: 80px;
+  --vs-gutter: clamp(16px, 3vw, 40px);
+  --vs-max: 1440px;
+
+  /* Shape */
+  --vs-radius: 0;
+  --vs-bw: 1px;
+  --vs-bw-strong: 1.5px;
+  --vs-shadow-pop: 0 24px 40px -24px rgba(17, 18, 20, .25);
+
+  /* Controls */
+  --vs-h-sm: 36px; --vs-h-md: 44px; --vs-h-lg: 52px; --vs-h-xl: 56px;
+
+  /* Motion */
+  --vs-ease: cubic-bezier(.2, .7, .2, 1);
+  --vs-t-fast: .15s; --vs-t: .25s; --vs-t-slow: .4s;
+
+  /* Layers */
+  --vs-z-header: 50; --vs-z-menu: 60; --vs-z-drawer: 80; --vs-z-modal: 90; --vs-z-toast: 100;
+}

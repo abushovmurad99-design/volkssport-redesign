@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kataloq — VOLKS SPORT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=20261022">
+<link rel="stylesheet" href="css/base.css?v=20261022">
+<link rel="stylesheet" href="css/components.css?v=20261022">
+<link rel="stylesheet" href="css/layout.css?v=20261022">
+</head>
+<body data-page="category">
+<div data-include="partials/header.html"></div>
+<main class="vs-container" data-category>
+  <div class="vs-cathead">
+    <ol class="vs-breadcrumb" data-crumbs></ol>
+    <h1 class="vs-h1" data-title>Kataloq</h1>
+    <span class="vs-cathead__count" data-count></span>
+    <nav class="vs-chips" data-chips aria-label="Alt kateqoriyalar"></nav>
+  </div>
+  <div class="vs-catlayout">
+    <aside class="vs-filters vs-acc" data-filters aria-label="Filtrlər"></aside>
+    <div>
+      <div class="vs-toolbar">
+        <button class="vs-btn vs-btn--outline vs-btn--sm vs-toolbar__filters" data-sheet-open>Filtrlər <span data-filter-count></span></button>
+        <label class="vs-visually-hidden" for="sort">Sırala</label>
+        <select class="vs-select" id="sort" data-sort style="margin-left:auto"></select>
+      </div>
+      <div class="vs-filters__active" data-active></div>
+      <div class="vs-grid" data-grid></div>
+      <div class="vs-empty" data-empty hidden>
+        <span class="vs-empty__title">Bu seçimlə məhsul tapılmadı</span>
+        <span class="vs-empty__text">Filtrləri azaldın və ya başqa kateqoriyaya keçin.</span>
+        <button class="vs-btn vs-btn--outline" data-clear>Filtrləri təmizlə</button>
+      </div>
+      <nav class="vs-pagination" data-pager aria-label="Səhifələr" style="margin-top:48px"></nav>
+    </div>
+  </div>
+</main>
+<div class="vs-scrim"></div>
+<div class="vs-sheet" role="dialog" aria-modal="true" aria-label="Filtrlər">
+  <div class="vs-sheet__head">Filtrlər <button class="vs-iconbtn" data-sheet-close aria-label="Bağla"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+  <div class="vs-sheet__body vs-acc" data-filters></div>
+  <div class="vs-sheet__foot"><button class="vs-btn vs-btn--outline" data-clear style="flex:1">Təmizlə</button><button class="vs-btn vs-btn--primary" data-sheet-apply style="flex:2">Göstər</button></div>
+</div>
+<div data-include="partials/footer.html"></div>
+<script src="js/i18n.js?v=20261022"></script>
+<script src="js/app.js?v=20261022"></script>
+<script src="js/pages.js?v=20261022"></script>
+</body>
+</html>

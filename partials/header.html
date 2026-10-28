@@ -1,0 +1,73 @@
+<!-- PrestaShop: themes/volkssport/templates/_partials/header.tpl -->
+<div class="vs-util">
+  <div class="vs-container vs-util__inner">
+    <nav class="vs-util__links" aria-label="Şirkət">
+      <a href="about.html">Haqqımızda</a>
+      <a href="store.html">Mağaza</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="vs-util__right">
+      <div class="vs-lang" role="group" aria-label="Dil">
+        <button data-lang="AZ" aria-pressed="true">AZ</button>
+        <button data-lang="RU" aria-pressed="false">RU</button>
+        <button data-lang="EN" aria-pressed="false">EN</button>
+      </div>
+      <a href="login.html">Daxil ol / Qeydiyyat</a>
+    </div>
+  </div>
+</div>
+<header class="vs-header">
+  <div class="vs-container vs-header__main">
+    <button class="vs-iconbtn vs-header__burger" data-mnav-open aria-label="Menyu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <a class="vs-header__logo" href="index.html" aria-label="VOLKS SPORT — Ana səhifə"><img src="assets/img/logo.svg" alt="VOLKS SPORT"></a>
+    <button class="vs-search" data-search-open aria-label="Axtarış">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <span>Axtarış...</span><span class="vs-search__kbd">⌘K</span>
+    </button>
+    <div class="vs-header__icons">
+      <a class="vs-iconbtn" href="login.html" aria-label="Hesab" data-hide-mobile><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span class="vs-iconbtn__label">Hesab</span></a>
+      <a class="vs-iconbtn" href="category.html?wishlist=1" aria-label="Seçilmişlər"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 20s-7-4.4-9-9.2C1.8 7.6 4 4.5 7.2 4.5c2 0 3.6 1.2 4.8 2.9 1.2-1.7 2.8-2.9 4.8-2.9 3.2 0 5.4 3.1 4.2 6.3C19 15.6 12 20 12 20z"/></svg><span class="vs-iconbtn__label">Seçilmişlər</span><span class="vs-iconbtn__count" data-wish-count hidden>0</span></a>
+    </div>
+  </div>
+  <nav class="vs-nav" aria-label="Kateqoriyalar">
+    <ul class="vs-container vs-nav__list" data-nav></ul>
+  </nav>
+</header>
+
+<!-- Search overlay — PrestaShop: ps_searchbar -->
+<div class="vs-searchpanel" role="dialog" aria-modal="true" aria-label="Axtarış">
+  <div class="vs-container vs-searchpanel__bar">
+    <input class="vs-searchpanel__input" type="search" placeholder="Axtarış..." aria-label="Axtarış" autocomplete="off">
+    <button class="vs-iconbtn" data-search-close aria-label="Bağla"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  </div>
+  <div class="vs-container vs-searchpanel__grid">
+    <aside data-search-side></aside>
+    <div data-search-results></div>
+  </div>
+</div>
+
+<!-- Mobile navigation -->
+<div class="vs-mnav" aria-label="Menyu">
+  <div class="vs-mnav__head">
+    <img src="assets/img/logo.svg" alt="VOLKS SPORT" style="height:20px;width:auto">
+    <button class="vs-iconbtn" data-mnav-close aria-label="Bağla"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  </div>
+  <div class="vs-mnav__body"></div>
+  <div style="padding:16px;border-top:1px solid var(--vs-border);display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:13px">
+    <a href="about.html">Haqqımızda</a><a href="store.html">Mağaza</a><a href="faq.html">FAQ</a>
+    <div class="vs-lang vs-lang--light" role="group" aria-label="Dil" style="margin-left:auto">
+      <button data-lang="AZ" aria-pressed="true">AZ</button>
+      <button data-lang="RU" aria-pressed="false">RU</button>
+      <button data-lang="EN" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile bottom tab bar -->
+<nav class="vs-tabbar" aria-label="Əsas">
+  <a href="index.html" data-tab="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9H3z"/></svg>Ana səhifə</a>
+  <button data-mnav-open data-tab="category"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg>Kateqoriyalar</button>
+  <button data-search-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Axtarış</button>
+  <a href="category.html?wishlist=1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 20s-7-4.4-9-9.2C1.8 7.6 4 4.5 7.2 4.5c2 0 3.6 1.2 4.8 2.9 1.2-1.7 2.8-2.9 4.8-2.9 3.2 0 5.4 3.1 4.2 6.3C19 15.6 12 20 12 20z"/></svg>Seçilmişlər</a>
+  <a href="login.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Hesab</a>
+</nav>

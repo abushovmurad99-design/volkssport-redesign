@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Məhsul — VOLKS SPORT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=20261022">
+<link rel="stylesheet" href="css/base.css?v=20261022">
+<link rel="stylesheet" href="css/components.css?v=20261022">
+<link rel="stylesheet" href="css/layout.css?v=20261022">
+</head>
+<body data-page="product">
+<div data-include="partials/header.html"></div>
+<main data-product>
+  <div class="vs-container" style="padding-top:20px"><ol class="vs-breadcrumb" data-crumbs></ol></div>
+  <div class="vs-container vs-pdp">
+    <div class="vs-gallery">
+      <div class="vs-gallery__thumbs" data-thumbs></div>
+      <div class="vs-gallery__main" role="button" tabindex="0" aria-label="Şəkli tam ekranda aç">
+        <img data-main alt="">
+        <button class="vs-iconbtn vs-gallery__fs" data-fullscreen aria-label="Tam ekran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+      </div>
+    </div>
+    <div class="vs-buybox">
+      <div class="vs-buybox__top"><div class="vs-buybox__brand" data-brand></div><span class="vs-buybox__code" data-code></span></div>
+      <h1 class="vs-buybox__name" data-name></h1>
+      <div class="vs-buybox__short" data-short hidden></div>
+      <div class="vs-buybox__meta" data-meta></div>
+      <div class="vs-buybox__price"><div data-price></div><div data-stock></div></div>
+      <div class="vs-facts" data-facts></div>
+    </div>
+  </div>
+  <section class="vs-container" data-tabs></section>
+  <section class="vs-container vs-section" data-related>
+    <div class="vs-sechead"><h2 class="vs-h2">Oxşar məhsullar</h2></div>
+    <div class="vs-rail" data-rail></div>
+  </section>
+</main>
+<div class="vs-viewer" role="dialog" aria-modal="true" aria-label="Şəkil">
+  <div class="vs-viewer__bar"><span data-view-count></span><button class="vs-iconbtn" data-view-close aria-label="Bağla"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+  <div class="vs-viewer__body">
+    <button class="vs-viewer__nav vs-viewer__nav--prev" type="button" data-view-prev aria-label="Əvvəlki şəkil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <div class="vs-viewer__stage"><img data-view-img alt=""></div>
+    <button class="vs-viewer__nav vs-viewer__nav--next" type="button" data-view-next aria-label="Növbəti şəkil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+  <div class="vs-viewer__thumbs" data-view-thumbs aria-label="Şəkillər"></div>
+</div>
+<div data-include="partials/footer.html"></div>
+<script src="js/i18n.js?v=20261022"></script>
+<script src="js/app.js?v=20261022"></script>
+<script src="js/pages.js?v=20261022"></script>
+</body>
+</html>

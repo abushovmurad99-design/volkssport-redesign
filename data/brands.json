@@ -1,0 +1,200 @@
+{
+ "_source": "Prototype brand list — only brands with a valid logo file are listed. Production: active PrestaShop manufacturers that have an image. See PRESTASHOP-INTEGRATION.md §5.2.",
+ "_schema": {
+  "name": "manufacturer name, must match product manufacturer_name",
+  "slug": "URL/file slug",
+  "logo": "image path or null → name shown as text"
+ },
+ "brands": [
+  {
+   "name": "Adidas",
+   "slug": "adidas",
+   "logo": "assets/img/brands/adidas.png"
+  },
+  {
+   "name": "Babolat",
+   "slug": "babolat",
+   "logo": "assets/img/brands/babolat.png"
+  },
+  {
+   "name": "Benlee",
+   "slug": "benlee",
+   "logo": "assets/img/brands/benlee.png"
+  },
+  {
+   "name": "BH fitness",
+   "slug": "bh-fitness",
+   "logo": "assets/img/brands/bh-fitness.png"
+  },
+  {
+   "name": "Body Sculpture",
+   "slug": "body-sculpture",
+   "logo": "assets/img/brands/body-sculpture.png"
+  },
+  {
+   "name": "Body-solid",
+   "slug": "body-solid",
+   "logo": "assets/img/brands/body-solid.png"
+  },
+  {
+   "name": "Butterfly",
+   "slug": "butterfly",
+   "logo": "assets/img/brands/butterfly.png"
+  },
+  {
+   "name": "Charly",
+   "slug": "charly",
+   "logo": "assets/img/brands/charly.png"
+  },
+  {
+   "name": "Constant",
+   "slug": "constant",
+   "logo": "assets/img/brands/constant.png"
+  },
+  {
+   "name": "Donic",
+   "slug": "donic",
+   "logo": "assets/img/brands/donic.png"
+  },
+  {
+   "name": "Dunlop",
+   "slug": "dunlop",
+   "logo": "assets/img/brands/dunlop.png"
+  },
+  {
+   "name": "Everlast",
+   "slug": "everlast",
+   "logo": "assets/img/brands/everlast.png"
+  },
+  {
+   "name": "Fashy",
+   "slug": "fashy",
+   "logo": "assets/img/brands/fashy.png"
+  },
+  {
+   "name": "Greenhill",
+   "slug": "greenhill",
+   "logo": "assets/img/brands/greenhill.png"
+  },
+  {
+   "name": "Head",
+   "slug": "head",
+   "logo": "assets/img/brands/head.png"
+  },
+  {
+   "name": "İrest",
+   "slug": "irest",
+   "logo": "assets/img/brands/irest.png"
+  },
+  {
+   "name": "Joerex",
+   "slug": "joerex",
+   "logo": "assets/img/brands/joerex.png"
+  },
+  {
+   "name": "Joma",
+   "slug": "joma",
+   "logo": "assets/img/brands/joma.png"
+  },
+  {
+   "name": "Kettler",
+   "slug": "kettler",
+   "logo": "assets/img/brands/kettler.png"
+  },
+  {
+   "name": "Live up",
+   "slug": "live-up",
+   "logo": "assets/img/brands/live-up.png"
+  },
+  {
+   "name": "Livepro",
+   "slug": "livepro",
+   "logo": "assets/img/brands/livepro.png"
+  },
+  {
+   "name": "Marcy",
+   "slug": "marcy",
+   "logo": "assets/img/brands/marcy.png"
+  },
+  {
+   "name": "Molten",
+   "slug": "molten",
+   "logo": "assets/img/brands/molten.png"
+  },
+  {
+   "name": "Nakto",
+   "slug": "nakto",
+   "logo": "assets/img/brands/nakto.png"
+  },
+  {
+   "name": "NIKE",
+   "slug": "nike",
+   "logo": "assets/img/brands/nike.png"
+  },
+  {
+   "name": "Nordic Track",
+   "slug": "nordic-track",
+   "logo": "assets/img/brands/nordic-track.png"
+  },
+  {
+   "name": "REEBOK",
+   "slug": "reebok",
+   "logo": "assets/img/brands/reebok.png"
+  },
+  {
+   "name": "Spalding",
+   "slug": "spalding",
+   "logo": "assets/img/brands/spalding.png"
+  },
+  {
+   "name": "Speedo",
+   "slug": "speedo",
+   "logo": "assets/img/brands/speedo.png"
+  },
+  {
+   "name": "Stiga",
+   "slug": "stiga",
+   "logo": "assets/img/brands/stiga.png"
+  },
+  {
+   "name": "Ta Sport",
+   "slug": "ta-sport",
+   "logo": "assets/img/brands/ta-sport.png"
+  },
+  {
+   "name": "Teeter",
+   "slug": "teeter",
+   "logo": "assets/img/brands/teeter.png"
+  },
+  {
+   "name": "Twins",
+   "slug": "twins",
+   "logo": "assets/img/brands/twins.png"
+  },
+  {
+   "name": "Venum",
+   "slug": "venum",
+   "logo": "assets/img/brands/venum.png"
+  },
+  {
+   "name": "VolksGYM",
+   "slug": "volksgym",
+   "logo": "assets/img/brands/volksgym.png"
+  },
+  {
+   "name": "Wilson",
+   "slug": "wilson",
+   "logo": "assets/img/brands/wilson.png"
+  },
+  {
+   "name": "Wish",
+   "slug": "wish",
+   "logo": "assets/img/brands/wish.png"
+  },
+  {
+   "name": "York Fitness",
+   "slug": "york-fitness",
+   "logo": "assets/img/brands/york-fitness.png"
+  }
+ ]
+}

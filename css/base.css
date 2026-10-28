@@ -1,0 +1,41 @@
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--vs-font); font-size: var(--vs-fs-body); line-height: var(--vs-lh); color: var(--vs-text); background: var(--vs-white); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: var(--vs-ink); text-decoration: none; transition: color var(--vs-t-fast); }
+a:hover { color: var(--vs-red); }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+h1, h2, h3, h4, p { margin: 0; }
+p, li { text-wrap: pretty; }
+::selection { background: var(--vs-yellow); color: var(--vs-ink); }
+:focus-visible { outline: 2px solid var(--vs-focus); outline-offset: 2px; }
+[hidden] { display: none !important; }
+/* Suspend hover effects on image cards while the page is scrolling (set by js/app.js) */
+.vs-is-scrolling .vs-card__media, .vs-is-scrolling .vs-catcard, .vs-is-scrolling .vs-brandcard, .vs-is-scrolling .vs-gallery__main, .vs-is-scrolling .vs-hotspot, .vs-is-scrolling .vs-post { pointer-events: none; }
+
+.vs-container { max-width: var(--vs-max); margin: 0 auto; padding-inline: var(--vs-gutter); }
+.vs-section { padding-block: clamp(40px, 6vw, 80px) 0; }
+.vs-visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.vs-mono { font-family: var(--vs-font-mono); }
+.vs-no-scroll { overflow: hidden; }
+
+/* Typography helpers */
+.vs-display { font-size: var(--vs-fs-display); line-height: .86; font-weight: 900; font-style: italic; font-stretch: 66%; text-transform: uppercase; letter-spacing: -.02em; text-wrap: balance; }
+.vs-h1 { font-size: var(--vs-fs-h1); line-height: var(--vs-lh-tight); font-weight: 900; font-style: italic; font-stretch: 75%; text-transform: uppercase; letter-spacing: -.01em; }
+.vs-h2 { font-size: var(--vs-fs-h2); line-height: 1; font-weight: 900; font-style: italic; font-stretch: 75%; text-transform: uppercase; }
+.vs-h3 { font-size: var(--vs-fs-h3); line-height: 1.15; font-weight: 800; }
+.vs-eyebrow { font-size: var(--vs-fs-xs); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--vs-text-2); }
+.vs-muted { color: var(--vs-text-2); }
+/* Long single words (e.g. RU "Кардиотренажёры") must not push the page sideways on small screens */
+.vs-h1, .vs-h2 { overflow-wrap: break-word; hyphens: auto; }
+
+/* Brand stripe (white / red / yellow) */
+.vs-stripe { display: flex; width: 96px; height: 4px; }
+.vs-stripe > i { flex: 1; }
+.vs-stripe > i:nth-child(1) { background: var(--vs-white); }
+.vs-stripe > i:nth-child(2) { background: var(--vs-red); }
+.vs-stripe > i:nth-child(3) { background: var(--vs-yellow); }
+.vs-stripe--ink > i:nth-child(1) { background: var(--vs-ink); }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
