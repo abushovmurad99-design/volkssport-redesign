@@ -66,7 +66,7 @@ avadanlıq təchizatı|поставка оборудования|equipment suppl
 Yeniliklərdən xəbərdar olun|Будьте в курсе новинок|Stay up to date
 Abunə ol|Подписаться|Subscribe
 E-poçt ünvanınız|Ваш e-mail|Your email
-2011-ci ildən idman avadanlığı və aksesuarları təchizatı.|Поставка спортивного оборудования и аксессуаров с 2011 года.|Supplying sports equipment and accessories since 2011.
+İdman avadanlığı və aksesuarları təchizatı.|Поставка спортивного оборудования и аксессуаров.|Supplying sports equipment and accessories.
 Məhsul adı, kodu və ya brend yazın.|Введите название товара, код или бренд.|Type a product name, code or brand.
 Bütün nəticələr →|Все результаты →|All results →
 Sırala|Сортировка|Sort
@@ -80,8 +80,6 @@ Məhsula bax|Смотреть товар|View product
 Professional fitness|Профессиональный фитнес|Professional fitness
 Ev məşqindən peşəkar idman zallarına qədər — minlərlə məhsul bir ünvanda.|От домашних тренировок до профессиональных залов — тысячи товаров в одном месте.|From home workouts to professional gyms — thousands of products in one place.
 Kataloqa bax|Смотреть каталог|View catalogue
-2011-ci ildən idmanla|В спорте с 2011 года|In sport since 2011
-Şirkətin təsisi|Основание компании|Company founded
 Məhsul çeşidinin genişlənməsi|Расширение ассортимента|Product range expanded
 İdman avadanlığı təchizatı|Поставка спортивного оборудования|Sports equipment supply
 Peşəkar servis|Профессиональный сервис|Professional service
@@ -206,7 +204,6 @@ VOLKSGYM MƏHSULLARI|ТОВАРЫ VOLKSGYM|VOLKSGYM PRODUCTS
 Kardio və güc trenajorları — ev üçün və idman zalları üçün. Bütün VolksGYM modelləri bir səhifədə.|Кардио и силовые тренажёры — для дома и спортзалов. Все модели VolksGYM на одной странице.|Cardio and strength machines for home and gyms. Every VolksGYM model on one page.
 Bütün brendlər|Все бренды|All brands
 Daha az göstər|Показать меньше|Show less
-2011-ci ildən|С 2011 года|Since 2011
 YENİ|НОВИНКА|NEW
 Stokda var|В наличии|In stock
 Stokda az qalıb|Осталось мало|Low stock
@@ -240,7 +237,7 @@ Müştəri xidməti|Обслуживание клиентов|Customer service
 YENİLİKLƏRƏ ABUNƏ OLUN|ПОДПИШИТЕСЬ НА НОВОСТИ|SUBSCRIBE TO NEWS
 ABUNƏ OL|ПОДПИСАТЬСЯ|SUBSCRIBE
 Düzgün e-poçt ünvanı daxil edin.|Введите корректный e-mail.|Enter a valid email address.
-2011-ci ildən idman avadanlıqları və aksesuarları.|Спортивное оборудование и аксессуары с 2011 года.|Sports equipment and accessories since 2011.
+İdman avadanlıqları və aksesuarları.|Спортивное оборудование и аксессуары.|Sports equipment and accessories.
 Tez-tez verilən suallar|Частые вопросы|Frequently asked questions
 Sualınızın cavabını tapmadınızsa, bizimlə birbaşa əlaqə saxlayın.|Если вы не нашли ответ, свяжитесь с нами напрямую.|If you can't find your answer, contact us directly.
 Ünvan|Адрес|Address
@@ -303,7 +300,7 @@ Tətbiq et|Применить|Apply
 Cəmi|Итого|Total
 HAQQIMIZDA|О НАС|ABOUT US
 idmanla|со спортом|with sport
-Volkssport 2011-ci ildən idman avadanlıqları və aksesuarları təchizatçısıdır. Kataloqumuzda ev məşqi, peşəkar idman zalları, idman klubları və istirahət üçün təxminən 3 000 məhsul var.|Volkssport с 2011 года поставляет спортивное оборудование и аксессуары. В нашем каталоге около 3 000 товаров для домашних тренировок, профессиональных залов, спортивных клубов и отдыха.|Volkssport has supplied sports equipment and accessories since 2011. Our catalogue has about 3,000 products for home training, professional gyms, sports clubs and recreation.
+Volkssport idman avadanlıqları və aksesuarları təchizatçısıdır. Kataloqumuzda ev məşqi, peşəkar idman zalları, idman klubları və istirahət üçün təxminən 3 000 məhsul var.|Volkssport поставляет спортивное оборудование и аксессуары. В нашем каталоге около 3 000 товаров для домашних тренировок, профессиональных залов, спортивных клубов и отдыха.|Volkssport supplies sports equipment and accessories. Our catalogue has about 3,000 products for home training, professional gyms, sports clubs and recreation.
 Fitness və kardio trenajorlarından futbol, basketbol, tennis, üzgüçülük, boks və yoga üçün avadanlığa, idman geyimindən masaj və bərpa məhsullarına qədər. İdman zalları, idman obyektləri və digər layihələr üçün avadanlıq təchizatı edirik.|От фитнес- и кардиотренажёров до оборудования для футбола, баскетбола, тенниса, плавания, бокса и йоги, от спортивной одежды до товаров для массажа и восстановления. Мы оснащаем спортзалы, спортивные объекты и другие проекты.|From fitness and cardio machines to equipment for football, basketball, tennis, swimming, boxing and yoga, from sportswear to massage and recovery products. We equip gyms, sports facilities and other projects.
 Yolumuz|Наш путь|Our journey
 MAĞAZA|МАГАЗИН|STORE

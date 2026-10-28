@@ -96,7 +96,7 @@
 .vs-hero-b__lead { max-width: 520px; display: flex; flex-direction: column; gap: 24px; font-size: 19px; color: var(--vs-dark-text-2); }
 
 /* ================= Trust strip ================= */
-.vs-trust { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: var(--vs-bw) solid var(--vs-border); }
+.vs-trust { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: var(--vs-bw) solid var(--vs-border); }
 .vs-trust__item { padding: 22px 24px; display: flex; flex-direction: column; gap: 2px; border-right: var(--vs-bw) solid var(--vs-border); }
 .vs-trust__item:last-child { border-right: 0; }
 .vs-trust__a { font-weight: 800; }
@@ -277,6 +277,7 @@
   .vs-trust { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .vs-trust__item:nth-child(2) { border-right: 0; }
   .vs-trust__item:nth-child(-n+2) { border-bottom: var(--vs-bw) solid var(--vs-border); }
+  .vs-trust__item:nth-child(3) { grid-column: 1 / -1; }
   .vs-grid--cats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .vs-footer__cols { grid-template-columns: repeat(2, 1fr); }
   .vs-hero-b__inner { min-height: 560px; }
