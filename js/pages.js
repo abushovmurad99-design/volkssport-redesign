@@ -207,7 +207,7 @@
     $('[data-code]', root).textContent = p.reference ? 'Kod: ' + p.reference : '';
     $('[data-meta]', root).innerHTML = `<span class="vs-rating" aria-label="Reytinq yoxdur">${'<i class="vs-rating__star"></i>'.repeat(5)}</span><span>Hələ rəy yoxdur</span>`;
     $('[data-stock]', root).innerHTML = stockText ? `<span class="vs-stock vs-stock--${stock[0]}">${stockText}</span>` : '';
-    $('[data-facts]', root).innerHTML = [['Brend', p.manufacturer_name || '—'], ['Kod', p.reference || '—'], ['Qiymət', priceText], ['Stok', stockText || '—']].map(([k, v]) => `<div class="vs-facts__cell"><span class="vs-facts__k">${k}</span><span class="vs-facts__v">${esc(v)}</span></div>`).join('');
+    $('[data-facts]', root).innerHTML = [['Brend', p.manufacturer_name || '—'], ['Kod', p.reference || '—'], ['Stok', stockText || '—']].map(([k, v]) => `<div class="vs-facts__cell"><span class="vs-facts__k">${k}</span><span class="vs-facts__v">${esc(v)}</span></div>`).join('');
     $('[data-price]', root).innerHTML = p.price > 0
       ? `<div class="vs-price vs-price--lg${sale ? ' vs-price--sale' : ''}"><span class="vs-price__current">${VS.data.money(p.price)}</span>${sale ? `<span class="vs-price__old">${VS.data.money(p.regular_price)}</span><span class="vs-price__save">−${Math.round((1 - p.price / p.regular_price) * 100)}% · −${VS.data.money(p.regular_price - p.price)}</span>` : ''}</div>`
       : `<div class="vs-price vs-price--call vs-price--lg"><span class="vs-price__current" style="font-size:22px">Qiymət üçün zəng edin</span></div>`;
