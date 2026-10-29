@@ -175,6 +175,9 @@
 .vs-facts__cell { display: flex; flex-direction: column; gap: 4px; padding: 18px 20px; border-right: var(--vs-bw) solid var(--vs-border); border-bottom: var(--vs-bw) solid var(--vs-border); min-width: 0; }
 .vs-facts__cell:nth-child(2n) { border-right: 0; }
 .vs-facts__cell:nth-last-child(-n+2) { border-bottom: 0; }
+/* Odd number of cells: last cell spans the row; the cell above it keeps its bottom border */
+.vs-facts__cell:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
+.vs-facts__cell:nth-last-child(2):nth-child(2n) { border-bottom: var(--vs-bw) solid var(--vs-border); }
 .vs-facts__k { font-size: var(--vs-fs-sm); color: var(--vs-text-2); }
 .vs-facts__v { font-size: 19px; font-weight: 800; overflow-wrap: anywhere; }
 .vs-specgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px 60px; }
