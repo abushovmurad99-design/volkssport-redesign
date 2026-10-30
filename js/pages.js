@@ -205,7 +205,7 @@
     const stockText = stock[1];
     const priceText = p.price > 0 ? VS.data.money(p.price) : 'Zəng edin';
     $('[data-code]', root).textContent = p.reference ? 'Kod: ' + p.reference : '';
-    $('[data-meta]', root).innerHTML = `<span class="vs-rating" aria-label="Reytinq yoxdur">${'<i class="vs-rating__star"></i>'.repeat(5)}</span><span>Hələ rəy yoxdur</span>`;
+    $('[data-meta]', root).hidden = true; // no review/rating data — reviews removed from the product page
     $('[data-stock]', root).innerHTML = stockText ? `<span class="vs-stock vs-stock--${stock[0]}">${stockText}</span>` : '';
     $('[data-facts]', root).innerHTML = [['Brend', p.manufacturer_name || '—'], ['Kod', p.reference || '—'], ['Stok', stockText || '—']].map(([k, v]) => `<div class="vs-facts__cell"><span class="vs-facts__k">${k}</span><span class="vs-facts__v">${esc(v)}</span></div>`).join('');
     $('[data-price]', root).innerHTML = p.price > 0
@@ -225,9 +225,8 @@
         <tbody>${cmpRows.map(([k, fn]) => `<tr><th scope="row">${k}</th>${peers.map((x, i) => `<td class="${i ? '' : 'is-current'}">${esc(fn(x))}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>` : ''}
     </div>`;
     const tabs = [
-      ['spec', 'Texniki xüsusiyyətlər', specHtml],
-      ['desc', 'Təsvir', p.description ? `<div class="vs-desc">${p.description}</div>` : '<p class="vs-muted">Bu məhsul üçün təsvir əlavə olunmayıb.</p>'],
-      ['rev', 'Rəylər', '<div class="vs-empty" style="padding:8px 0"><span class="vs-empty__title">Hələ rəy yoxdur</span><span class="vs-empty__text">Bu məhsul haqqında ilk rəyi siz yazın.</span></div>']
+      ['spec', '<span class="vs-tabs__full">Texniki xüsusiyyətlər</span><span class="vs-tabs__short" aria-hidden="true">Xarakteristikalar</span>', specHtml],
+      ['desc', 'Təsvir', p.description ? `<div class="vs-desc">${p.description}</div>` : '<p class="vs-muted">Bu məhsul üçün təsvir əlavə olunmayıb.</p>']
     ];
     const tabsEl = $('[data-tabs]', root);
     if (!tabs.length) tabsEl.hidden = true;

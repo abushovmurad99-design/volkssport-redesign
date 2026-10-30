@@ -223,8 +223,8 @@ Ucuzdan bahaya|Сначала дешёвые|Price: low to high
 Bahadan ucuza|Сначала дорогие|Price: high to low
 Daha çox yüklə|Загрузить ещё|Load more
 Texniki xüsusiyyətlər|Технические характеристики|Specifications
+Xarakteristikalar|Характеристики|Specifications
 Təsvir|Описание|Description
-Rəylər|Отзывы|Reviews
 Oxşar məhsullar|Похожие товары|Related products
 Kod|Код|Code
 Qiymət|Цена|Price
@@ -287,7 +287,6 @@ Bütün kateqoriyalar →|Все категории →|All categories →
 hər şey|вашего спорта|your sport
 FİLTRLƏR|ФИЛЬТРЫ|FILTERS
 DAHA ÇOX GÖSTƏR|ПОКАЗАТЬ ЕЩЁ|SHOW MORE
-Hələ rəy yoxdur|Пока нет отзывов|No reviews yet
 Lövhənin ölçüsü|Размер щита|Backboard size
 Komplekt|Комплектация|Included
 Böyük ölçü|Большой размер|Large size
