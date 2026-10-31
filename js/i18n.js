@@ -145,6 +145,7 @@ Qriflər|Грифы|Bars
 Qantellər|Гантели|Dumbbells
 Çəki daşları|Гири|Kettlebells
 Ağırlıq jiletləri|Утяжелительные жилеты|Weighted vests
+Tennis və Padel|Теннис и падел|Tennis and Padel
 Bolqar kisələri|Болгарские мешки|Bulgarian bags
 Futbol|Футбол|Football
 Basketbol|Баскетбол|Basketball
