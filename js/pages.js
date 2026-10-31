@@ -73,11 +73,16 @@
     const st = Object.fromEntries(VS.qs.entries());
     const root = $('[data-category]');
 
-    const node = st.c && st.c !== 'sale' ? flat.find(n => n.id === st.c) : null;
+    // Combined view for the home-page hero zone "Tennis, Padel və Skvoş": every product in the Tennis and Padel trees.
+    // extraIds: products confirmed for court tennis/padel that live in another category (they are listed here, not moved).
+    const COMBOS = { 'tennis-padel': { ids: ['idman-tennis', 'idman-padel'], extraIds: [2578, 2576], title: 'Tennis və Padel' } };
+    const combo = COMBOS[st.c] || null;
+    const node = st.c && st.c !== 'sale' && !combo ? flat.find(n => n.id === st.c) : null;
     let base, title, crumbs = [['Ana səhifə', 'index.html']];
     if (st.wishlist) { const ids = VS.wish.get(); base = all.filter(p => ids.includes(p.id_product)); title = 'Seçilmişlər'; }
     else if (st.q) { const q = st.q.toLowerCase(); base = all.filter(p => (p.name + ' ' + p.reference + ' ' + p.manufacturer_name).toLowerCase().includes(q)); title = '“' + st.q + '” üzrə nəticələr'; }
     else if (st.new) { base = all.filter(p => VS.inStock(p) && p.price > 0).sort((a, b) => b.id_product - a.id_product).slice(0, 48); title = 'Yeni gələnlər'; }
+    else if (combo) { const ids = new Set(combo.ids.flatMap(id => { const n = flat.find(x => x.id === id); return n ? [...VS.data.leafIds(n)] : []; })); const extra = new Set(combo.extraIds || []); base = all.filter(p => ids.has(p.id_category_default) || extra.has(p.id_product)); title = combo.title; }
     else if (st.c === 'sale') { base = all.filter(p => p.regular_price > p.price); title = 'Endirimli məhsullar'; }
     else if (st.brand) { base = all.filter(p => p.manufacturer_name.toLowerCase() === st.brand.toLowerCase()); title = st.brand; crumbs.push(['Brendlər', null]); }
     else if (node) { const ids = VS.data.leafIds(node); base = all.filter(p => ids.has(p.id_category_default)); title = node.name; node.parents.forEach(p => crumbs.push([p.name, 'category.html?c=' + VS.cid(p.id)])); }
