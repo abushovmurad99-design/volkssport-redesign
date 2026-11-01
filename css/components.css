@@ -185,8 +185,6 @@
 .vs-spec th { width: 40%; font-weight: 500; color: var(--vs-text-2); }
 .vs-spec td { font-weight: 700; }
 .vs-spec tr:nth-child(odd) { background: var(--vs-surface-2); }
-.vs-spec--compare th { width: auto; }
-.vs-spec--compare thead th { background: var(--vs-white); color: var(--vs-ink); font-weight: 800; }
 
 /* ================= Quantity selector (UI only) ================= */
 .vs-qty { display: inline-flex; align-items: center; height: var(--vs-h-lg); border: var(--vs-bw-strong) solid var(--vs-border); }
