@@ -94,6 +94,9 @@
 
 /* ================= Brand card ================= */
 .vs-brandcard { display: grid; place-items: center; height: 96px; padding: 8px 14px; border: var(--vs-bw) solid var(--vs-hairline); background: var(--vs-white); transition: border-color var(--vs-t-fast); }
+/* One fixed grid cell = the card's content box. Without it the auto row grew to the img's 80px max-height, so on 72px mobile cards
+   the logo box overflowed downwards and sat ~11px below centre. */
+.vs-brandcard { grid-template: minmax(0, 1fr) / minmax(0, 1fr); }
 /* Logo files are mostly 200x153 canvases with built-in margins: fill the card box with object-fit: contain (ratio kept, never cropped) instead of capping the canvas at 44px. */
 .vs-brandcard img { width: 100%; height: 100%; max-height: 80px; object-fit: contain; filter: grayscale(1); opacity: .8; transition: filter var(--vs-t), opacity var(--vs-t); }
 .vs-brandcard:hover { border-color: var(--vs-ink); }
@@ -101,8 +104,13 @@
 /* NAKTO only: logo file is a 271x350 white canvas with the mark (161x48) in the middle, so it rendered ~3x smaller than other logos.
    Scale the image (ratio kept); the card clips only the white margin. Remove when a tightly cropped logo is uploaded in PrestaShop. */
 .vs-brandcard:has(img[src$="/nakto.png"]) { overflow: hidden; }
-.vs-brandcard img[src$="/nakto.png"] { transform: scale(2.4); }
-@media (max-width: 480px) { .vs-brandcard img[src$="/nakto.png"] { transform: scale(2.1); } } /* keeps ~8px side margin in the 96px-wide cards at 360px */
+.vs-brandcard img[src$="/nakto.png"] { transform: scale(2.4); translate: 0 -7.2%; } /* mark sits 3% below the canvas centre: 3% x scale */
+@media (max-width: 480px) { .vs-brandcard img[src$="/nakto.png"] { transform: scale(2.1); translate: 0 -6.3%; } } /* keeps ~8px side margin in the 96px-wide cards at 360px */
+/* GREENHILL only: the mark fills the left 63% of its 200x153 canvas (centre 18.25% of the drawn width left of middle).
+   Shift right by 18.25% of the drawn width = min(element width, box height x 1.307). Remove when a centred logo is uploaded in PrestaShop. */
+.vs-brandcard:has(img[src$="/greenhill.png"]) { overflow: hidden; }
+.vs-brandcard img[src$="/greenhill.png"] { translate: min(18.25%, 19.1px) 0; }
+@media (max-width: 600px) { .vs-brandcard img[src$="/greenhill.png"] { translate: min(18.25%, 14.3px) 0; } }
 .vs-brandcard__name { font-size: var(--vs-fs-sm); font-weight: 800; letter-spacing: .04em; text-transform: uppercase; text-align: center; color: var(--vs-text-2); overflow-wrap: anywhere; }
 .vs-brandcard:hover .vs-brandcard__name { color: var(--vs-ink); }
 .vs-brandcard.is-active { border: 2px solid var(--vs-ink); }
