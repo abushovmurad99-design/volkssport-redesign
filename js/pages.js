@@ -220,14 +220,9 @@
     // Tabs — only those with real data are rendered
     const feats = p.features || [];
     const rows = [...feats.map(x => [x.name, x.value]), ['Brend', p.manufacturer_name || '—'], ['Kod (reference)', p.reference || '—'], ['Mövcudluq', stockText]];
-    const peers = [p, ...all.filter(x => x.id_category_default === p.id_category_default && x.id_product !== p.id_product && VS.inStock(x)).slice(0, 2)];
-    const cmpRows = [['Kod', x => x.reference || '—'], ['Brend', x => x.manufacturer_name || '—'], ['Qiymət', x => x.price > 0 ? VS.data.money(x.price) : '—'], ['Stok', x => ({ in: 'Var', out: 'Yoxdur' })[VS.stock(x)] || '—']];
     const specHtml = `<div class="vs-specgrid">
       <div>
         <table class="vs-spec vs-spec--plain"><tbody>${rows.map(([k, v], i) => `<tr><th scope="row"${i < feats.length ? ' data-i18n-ctx="spec"' : ''}>${esc(k)}</th><td${i < feats.length ? ' data-no-i18n' : ''}>${esc(v)}</td></tr>`).join('')}</tbody></table></div>
-      ${peers.length > 1 ? `<div><div class="vs-specgrid__head"><h3 class="vs-eyebrow vs-specgrid__title">Müqayisə et</h3>${cat ? `<a href="category.html?c=${VS.cid(cat.id)}">${esc(cat.name)}</a>` : ''}</div>
-        <div class="vs-compare-wrap"><table class="vs-compare"><thead><tr><td></td>${peers.map((x, i) => `<th scope="col" class="${i ? '' : 'is-current'}">${i ? `<a href="product.html?id=${x.id_product}">${esc(x.name)}</a>` : esc(x.name)}</th>`).join('')}</tr></thead>
-        <tbody>${cmpRows.map(([k, fn]) => `<tr><th scope="row">${k}</th>${peers.map((x, i) => `<td class="${i ? '' : 'is-current'}">${esc(fn(x))}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>` : ''}
     </div>`;
     const tabs = [
       ['spec', '<span class="vs-tabs__full">Texniki xüsusiyyətlər</span><span class="vs-tabs__short" aria-hidden="true">Xarakteristikalar</span>', specHtml],

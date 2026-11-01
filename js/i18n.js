@@ -295,7 +295,6 @@ Yığcam ölçü|Компактный размер|Compact size
 Dərinlik|Глубина|Depth
 Bu məhsul üçün təsvir əlavə olunmayıb.|Описание для этого товара пока не добавлено.|No description has been added for this product yet.
 TEXNİKİ XÜSUSİYYƏTLƏR|ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ|TECHNICAL SPECIFICATIONS
-MÜQAYİSƏ ET|СРАВНИТЬ|COMPARE
 Geri|Назад|Back
 Tətbiq et|Применить|Apply
 Cəmi|Итого|Total
@@ -507,7 +506,6 @@ Yük aralığı|Диапазон нагрузки|Load range
 Uzunluğu|Длина|Length
 Eni|Ширина|Width
 Kod (reference)|Код (артикул)|Code (reference)
-Müqayisə et|Сравнить|Compare
 Uzunluq|Длина|Length
 Qalınlıq|Толщина|Thickness
 Çəki, kq|Вес, кг|Weight, kg
