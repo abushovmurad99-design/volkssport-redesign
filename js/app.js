@@ -77,6 +77,11 @@
     setTimeout(() => { t.classList.add('is-leaving'); setTimeout(() => t.remove(), 300); }, 2600);
   };
 
+  /* Second (hover) photo is only rendered where a mouse can show it. On touch-only screens it was downloaded and decoded but never visible.
+     any-hover/any-pointer: true whenever ANY mouse is present. The primary-input query (hover/pointer) is false on many touchscreen
+     laptops and hybrids even with a mouse attached, which removed the swap there. */
+  VS.canHoverSwap = matchMedia('(any-hover: hover) and (any-pointer: fine)').matches;
+
   /* ---------- Product card (PrestaShop: catalog/_partials/miniatures/product.tpl) ---------- */
   VS.card = p => {
     const sale = p.regular_price && p.regular_price > p.price;
@@ -91,7 +96,7 @@
     return `<article class="vs-card${out ? ' vs-card--out' : ''}" data-id="${p.id_product}">
   <div class="vs-card__media">
     <img src="${esc(p.cover)}" alt="${esc(p.name)}" loading="lazy" decoding="async" data-err="card">
-    ${alt ? `<img class="vs-card__alt" src="${esc(alt)}" alt="" aria-hidden="true" loading="lazy" decoding="async" data-err="remove">` : ''}
+    ${alt && VS.canHoverSwap ? `<img class="vs-card__alt" src="${esc(alt)}" alt="" aria-hidden="true" loading="lazy" decoding="async" data-err="remove">` : ''}
     <div class="vs-card__badges">${p.is_new ? '<span class="vs-badge vs-badge--new">Yeni</span>' : ''}${sale ? `<span class="vs-badge vs-badge--sale">−${pct}%</span>` : ''}${out ? '<span class="vs-badge vs-badge--out">Stokda yoxdur</span>' : ''}</div>
     <button class="vs-iconbtn vs-iconbtn--round vs-card__wish" data-wish="${p.id_product}" aria-pressed="${VS.wish.has(p.id_product)}" aria-label="Seçilmişlərə əlavə et">${VS.icon('heart')}</button>
     <button class="vs-btn vs-btn--sm vs-btn--block vs-card__quick" data-quick="${p.id_product}">Sürətli baxış</button>
@@ -220,9 +225,12 @@
 
   /* ---------- Global delegated actions ---------- */
   function globalActions() {
-    if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    if (VS.canHoverSwap) {
       let cur = null;
       const set = m => { if (cur === m) return; if (cur) cur.classList.remove('is-alt'); cur = m; if (m) m.classList.add('is-alt'); };
+      // The title link's ::after overlay (.vs-card__name a::after, inset 0) covers the whole card, so the real hit target is that
+      // link, never .vs-card__media. Find the card, then test the pointer against the photo box. The box is only measured for
+      // cards that have a second photo; layout is clean during plain mouse movement, so the read is cheap.
       document.addEventListener('pointermove', e => {
         if (e.pointerType !== 'mouse') return;
         const card = e.target.closest && e.target.closest('.vs-card');
@@ -275,6 +283,8 @@
      cursor passed during wheel scrolling. While the page scrolls, html.vs-is-scrolling disables pointer
      events on image cards; they come back 150 ms after scrolling stops. Passive listener — never blocks scroll. */
   (function scrollHoverGuard() {
+    // Touch screens have no hover, so toggling the class there only cost two whole-page style recalculations per scroll.
+    if (!matchMedia('(any-hover: hover)').matches) return;
     let t; const root = document.documentElement;
     window.addEventListener('scroll', () => { if (!root.classList.contains('vs-is-scrolling')) root.classList.add('vs-is-scrolling'); clearTimeout(t); t = setTimeout(() => root.classList.remove('vs-is-scrolling'), 150); }, { passive: true });
   })();
